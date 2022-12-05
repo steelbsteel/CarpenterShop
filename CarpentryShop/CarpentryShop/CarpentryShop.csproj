@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EC6DB71A-0220-4F51-AC74-507B9BACC91E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CarpentryShop</RootNamespace>
+    <AssemblyName>CarpentryShop</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Windows\CarpenterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Menu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CarpentryShopDB\Carpenter.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\CarpentryShopModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarpentryShopModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\CarpentryShopModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\CarpentryShopModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarpentryShopModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\ComponentReceipts.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\Components.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\DetailReceipts.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\InventoryCarpenter.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\InventoryMaterials.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\InventoryMetalDetails.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\InventoryTools.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\InventoryWoodDetails.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\Machines.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\Materials.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\MetalDetails.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\ProductReceiptDetails.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\ProductReceipts.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\ProductReceiptsComponents.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\Products.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\Tools.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\TypeMaterials.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\WoodDetails.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CarpenterWindow.xaml.cs">
+      <DependentUpon>CarpenterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="CarpentryShopDB\CarpentryShopModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CarpentryShopModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CarpentryShopDB\CarpentryShopModel.edmx.diagram">
+      <DependentUpon>CarpentryShopModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CarpentryShopDB\CarpentryShopModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CarpentryShopModel.Context.cs</LastGenOutput>
+      <DependentUpon>CarpentryShopModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="CarpentryShopDB\CarpentryShopModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarpentryShopModel.edmx</DependentUpon>
+      <LastGenOutput>CarpentryShopModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="MP3\Resonance.mp3" />
+    <Resource Include="Images\ComponentsImages\Ведро.jpg" />
+    <Resource Include="Images\ComponentsImages\Вентилятор.jpg" />
+    <Resource Include="Images\ComponentsImages\Задняя стенка.jpg" />
+    <Resource Include="Images\ComponentsImages\Закругленная 100х13.jpg" />
+    <Resource Include="Images\ComponentsImages\Колодец без ведра.jpg" />
+    <Resource Include="Images\ComponentsImages\корпус военного ящика.jpg" />
+    <Resource Include="Images\ComponentsImages\корпус ящика со стенкой.jpg" />
+    <Resource Include="Images\ComponentsImages\МельницаБезВентилятора.jpg" />
+    <Resource Include="Images\ComponentsImages\Обработанный черенок.jpg" />
+    <Resource Include="Images\ComponentsImages\стенка для ящика.jpg" />
+    <Resource Include="Images\MachineImages\CHPU.jpg" />
+    <Resource Include="Images\MachineImages\Encore.jpg" />
+    <Resource Include="Images\MachineImages\SamStal.jpg" />
+    <Resource Include="Images\MachineImages\Torcovka.jpg" />
+    <Resource Include="Images\MainWindowImage\CarpentryEnter.jpg" />
+    <Resource Include="Images\MaterialImages\Дуб.jpg" />
+    <Resource Include="Images\MaterialImages\Картон.jpg" />
+    <Resource Include="Images\MaterialImages\Латунь.jpg" />
+    <Resource Include="Images\MaterialImages\Листвинница.jpg" />
+    <Resource Include="Images\MaterialImages\Сталь.jpg" />
+    <Resource Include="Images\MaterialImages\Фанера.jpg" />
+    <Resource Include="Images\MetalDetailImages\Винт.jpeg" />
+    <Resource Include="Images\MetalDetailImages\Гайки.jpg" />
+    <Resource Include="Images\MetalDetailImages\ГвоздиДляПистолета.jpg" />
+    <Resource Include="Images\MetalDetailImages\Саморезы.jpg" />
+    <Resource Include="Images\MetalDetailImages\Трубка.jpg" />
+    <Resource Include="Images\MetalDetailImages\Шпилька.jpg" />
+    <Resource Include="Images\ProductImages\Военный ящик.png" />
+    <Resource Include="Images\ProductImages\Колодец.png" />
+    <Resource Include="Images\ProductImages\Мельница.png" />
+    <Resource Include="Images\ProductImages\Ящик с задней стенкой.jpg" />
+    <Resource Include="Images\ProductImages\Ящик с черенком.png" />
+    <Resource Include="Images\ToolsImages\Дрель.jpg" />
+    <Resource Include="Images\ToolsImages\Киянка.jpg" />
+    <Resource Include="Images\ToolsImages\Лобзик.jpg" />
+    <Resource Include="Images\ToolsImages\Пистолет.jpg" />
+    <Resource Include="Images\ToolsImages\Плоскогубцы.jpg" />
+    <Resource Include="Images\ToolsImages\Шуруповерт.jpeg" />
+    <Resource Include="Images\WoodDetailImages\Вагонка.jpg" />
+    <Resource Include="Images\WoodDetailImages\Дно для изделия.jpeg" />
+    <Resource Include="Images\WoodDetailImages\Доска 100х13.jpeg" />
+    <Resource Include="Images\WoodDetailImages\Доска 10х40.jpg" />
+    <Resource Include="Images\WoodDetailImages\Доска 20х40.jpg" />
+    <Resource Include="Images\WoodDetailImages\Уголки.jpg" />
+    <Resource Include="Images\WoodDetailImages\Черенки.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,51 @@
+﻿<Window x:Class="CarpentryShop.Windows.CarpenterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarpentryShop.Windows"
+        mc:Ignorable="d"
+        
+        Title="CarpenterWindow" Height="720" Width="1240">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <Image x:Name="CarpenterPhoto" Height="90" Width="90"></Image>
+
+        <StackPanel Grid.Row="1" Background="AliceBlue">
+            <TextBlock Text="Master:"></TextBlock>
+            <TextBlock x:Name="NameTextBlock"></TextBlock>
+            <TextBlock x:Name="SurnameTextBlock"></TextBlock>
+            <TextBlock></TextBlock>
+            <TextBlock Text="Stamina:"></TextBlock>
+            <TextBlock x:Name="StaminaTextBlock"></TextBlock>
+            <TextBlock></TextBlock>
+            <TextBlock Text="Balance"></TextBlock>
+            <TextBlock x:Name="BalanceTextBlock"></TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <TextBlock Text="Inventory" FontSize="48" FontWeight="Bold"></TextBlock>
+        </StackPanel>
+
+        <ListView Grid.Row="1" Grid.Column="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>

@@ -1,0 +1,602 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище CarpentryShopModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Carpenter">
+    <Key>
+      <PropertyRef Name="idCarpenter" />
+    </Key>
+    <Property Name="idCarpenter" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameCarpenter" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SurnameCarpenter" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImageCarpenter" Type="image" />
+    <Property Name="StaminaCarpenter" Type="int" Nullable="false" />
+    <Property Name="BalanceCarpenter" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ComponentReceipts">
+    <Key>
+      <PropertyRef Name="idCompontentReceipt" />
+    </Key>
+    <Property Name="idCompontentReceipt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idWoodDetail" Type="int" />
+    <Property Name="idTool" Type="int" />
+    <Property Name="idMachine" Type="int" />
+    <Property Name="idMetalDetail" Type="int" />
+  </EntityType>
+  <EntityType Name="Components">
+    <Key>
+      <PropertyRef Name="idComponent" />
+    </Key>
+    <Property Name="idComponent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idComponentReceipt" Type="int" />
+    <Property Name="Image" Type="image" />
+  </EntityType>
+  <EntityType Name="DetailReceipts">
+    <Key>
+      <PropertyRef Name="idDetailReceipt" />
+    </Key>
+    <Property Name="idDetailReceipt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idMaterial" Type="int" />
+    <Property Name="idTool" Type="int" />
+    <Property Name="idMachine" Type="int" />
+  </EntityType>
+  <EntityType Name="InventoryCarpenter">
+    <Key>
+      <PropertyRef Name="idInventory" />
+    </Key>
+    <Property Name="idInventory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCarpenter" Type="int" Nullable="false" />
+    <Property Name="idInventoryTool" Type="int" />
+    <Property Name="idInventoryMetalDetails" Type="int" />
+    <Property Name="idInventoryMaterials" Type="int" />
+    <Property Name="idInventoryWoodDetails" Type="int" />
+  </EntityType>
+  <EntityType Name="InventoryMaterials">
+    <Key>
+      <PropertyRef Name="idInventoryMaterial" />
+    </Key>
+    <Property Name="idInventoryMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idMaterial" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InventoryMetalDetails">
+    <Key>
+      <PropertyRef Name="idInventoryMetalDetail" />
+    </Key>
+    <Property Name="idInventoryMetalDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idMetalDetail" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InventoryTools">
+    <Key>
+      <PropertyRef Name="idInventoryTool" />
+    </Key>
+    <Property Name="idInventoryTool" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idTool" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InventoryWoodDetails">
+    <Key>
+      <PropertyRef Name="idInventoryWoodDetail" />
+    </Key>
+    <Property Name="idInventoryWoodDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idWoodDetail" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Machines">
+    <Key>
+      <PropertyRef Name="idMachine" />
+    </Key>
+    <Property Name="idMachine" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameMachine" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImageMachine" Type="image" />
+  </EntityType>
+  <EntityType Name="Materials">
+    <Key>
+      <PropertyRef Name="idMaterial" />
+    </Key>
+    <Property Name="idMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idTypeMaterial" Type="int" Nullable="false" />
+    <Property Name="ImageMaterial" Type="image" />
+    <Property Name="NameMaterial" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MetalDetails">
+    <Key>
+      <PropertyRef Name="idMetalDetail" />
+    </Key>
+    <Property Name="idMetalDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameMetalDetail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImageMetalDetail" Type="image" />
+    <Property Name="idDetailReceipt" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductReceiptDetails">
+    <Key>
+      <PropertyRef Name="idProductReceiptDetail" />
+    </Key>
+    <Property Name="idProductReceiptDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idWoodDetail" Type="int" />
+    <Property Name="idMetalDetail" Type="int" />
+    <Property Name="idProductReceipt" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductReceipts">
+    <Key>
+      <PropertyRef Name="idProductReceipt" />
+    </Key>
+    <Property Name="idProductReceipt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idTool" Type="int" />
+    <Property Name="idMachine" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductReceiptsComponents">
+    <Key>
+      <PropertyRef Name="idProductReceiptComponents" />
+    </Key>
+    <Property Name="idProductReceiptComponents" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idComponent" Type="int" />
+    <Property Name="idProductReceipt" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="idProduct" />
+    </Key>
+    <Property Name="idProduct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameProduct" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImageProduct" Type="image" />
+    <Property Name="idProductReceipt" Type="int" />
+  </EntityType>
+  <EntityType Name="Tools">
+    <Key>
+      <PropertyRef Name="idTool" />
+    </Key>
+    <Property Name="idTool" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameTool" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImageTool" Type="image" />
+  </EntityType>
+  <EntityType Name="TypeMaterials">
+    <Key>
+      <PropertyRef Name="idTypeMaterial" />
+    </Key>
+    <Property Name="idTypeMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WoodDetails">
+    <Key>
+      <PropertyRef Name="idWoodDetail" />
+    </Key>
+    <Property Name="idWoodDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameWoodDetail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImageWoodDetail" Type="image" />
+    <Property Name="idDetailReceipt" Type="int" />
+  </EntityType>
+  <Association Name="FK_ComponentReceipts_MetalDetails">
+    <End Role="MetalDetails" Type="Self.MetalDetails" Multiplicity="0..1" />
+    <End Role="ComponentReceipts" Type="Self.ComponentReceipts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MetalDetails">
+        <PropertyRef Name="idMetalDetail" />
+      </Principal>
+      <Dependent Role="ComponentReceipts">
+        <PropertyRef Name="idMetalDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComponentReceipts_WoodDetails">
+    <End Role="WoodDetails" Type="Self.WoodDetails" Multiplicity="0..1" />
+    <End Role="ComponentReceipts" Type="Self.ComponentReceipts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WoodDetails">
+        <PropertyRef Name="idWoodDetail" />
+      </Principal>
+      <Dependent Role="ComponentReceipts">
+        <PropertyRef Name="idWoodDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Components_ComponentReceipts">
+    <End Role="ComponentReceipts" Type="Self.ComponentReceipts" Multiplicity="0..1" />
+    <End Role="Components" Type="Self.Components" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComponentReceipts">
+        <PropertyRef Name="idCompontentReceipt" />
+      </Principal>
+      <Dependent Role="Components">
+        <PropertyRef Name="idComponentReceipt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetailReceipts_Machines">
+    <End Role="Machines" Type="Self.Machines" Multiplicity="0..1" />
+    <End Role="DetailReceipts" Type="Self.DetailReceipts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machines">
+        <PropertyRef Name="idMachine" />
+      </Principal>
+      <Dependent Role="DetailReceipts">
+        <PropertyRef Name="idMachine" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetailReceipts_Materials">
+    <End Role="Materials" Type="Self.Materials" Multiplicity="0..1" />
+    <End Role="DetailReceipts" Type="Self.DetailReceipts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="idMaterial" />
+      </Principal>
+      <Dependent Role="DetailReceipts">
+        <PropertyRef Name="idMaterial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetailReceipts_Tools">
+    <End Role="Tools" Type="Self.Tools" Multiplicity="0..1" />
+    <End Role="DetailReceipts" Type="Self.DetailReceipts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tools">
+        <PropertyRef Name="idTool" />
+      </Principal>
+      <Dependent Role="DetailReceipts">
+        <PropertyRef Name="idTool" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Details_DetailReceipts">
+    <End Role="DetailReceipts" Type="Self.DetailReceipts" Multiplicity="0..1" />
+    <End Role="MetalDetails" Type="Self.MetalDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DetailReceipts">
+        <PropertyRef Name="idDetailReceipt" />
+      </Principal>
+      <Dependent Role="MetalDetails">
+        <PropertyRef Name="idDetailReceipt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryCarpenter_Carpenter">
+    <End Role="Carpenter" Type="Self.Carpenter" Multiplicity="1" />
+    <End Role="InventoryCarpenter" Type="Self.InventoryCarpenter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carpenter">
+        <PropertyRef Name="idCarpenter" />
+      </Principal>
+      <Dependent Role="InventoryCarpenter">
+        <PropertyRef Name="idCarpenter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryCarpenter_InventoryDetails">
+    <End Role="InventoryMetalDetails" Type="Self.InventoryMetalDetails" Multiplicity="0..1" />
+    <End Role="InventoryCarpenter" Type="Self.InventoryCarpenter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryMetalDetails">
+        <PropertyRef Name="idInventoryMetalDetail" />
+      </Principal>
+      <Dependent Role="InventoryCarpenter">
+        <PropertyRef Name="idInventoryMetalDetails" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryCarpenter_InventoryMaterials">
+    <End Role="InventoryMaterials" Type="Self.InventoryMaterials" Multiplicity="0..1" />
+    <End Role="InventoryCarpenter" Type="Self.InventoryCarpenter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryMaterials">
+        <PropertyRef Name="idInventoryMaterial" />
+      </Principal>
+      <Dependent Role="InventoryCarpenter">
+        <PropertyRef Name="idInventoryMaterials" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryCarpenter_InventoryTools">
+    <End Role="InventoryTools" Type="Self.InventoryTools" Multiplicity="0..1" />
+    <End Role="InventoryCarpenter" Type="Self.InventoryCarpenter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryTools">
+        <PropertyRef Name="idInventoryTool" />
+      </Principal>
+      <Dependent Role="InventoryCarpenter">
+        <PropertyRef Name="idInventoryTool" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryCarpenter_InventoryWoodDetails">
+    <End Role="InventoryWoodDetails" Type="Self.InventoryWoodDetails" Multiplicity="0..1" />
+    <End Role="InventoryCarpenter" Type="Self.InventoryCarpenter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryWoodDetails">
+        <PropertyRef Name="idInventoryWoodDetail" />
+      </Principal>
+      <Dependent Role="InventoryCarpenter">
+        <PropertyRef Name="idInventoryWoodDetails" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryDetails_Details">
+    <End Role="MetalDetails" Type="Self.MetalDetails" Multiplicity="1" />
+    <End Role="InventoryMetalDetails" Type="Self.InventoryMetalDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MetalDetails">
+        <PropertyRef Name="idMetalDetail" />
+      </Principal>
+      <Dependent Role="InventoryMetalDetails">
+        <PropertyRef Name="idMetalDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryMaterials_Materials">
+    <End Role="Materials" Type="Self.Materials" Multiplicity="1" />
+    <End Role="InventoryMaterials" Type="Self.InventoryMaterials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="idMaterial" />
+      </Principal>
+      <Dependent Role="InventoryMaterials">
+        <PropertyRef Name="idMaterial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryTools_Tools">
+    <End Role="Tools" Type="Self.Tools" Multiplicity="1" />
+    <End Role="InventoryTools" Type="Self.InventoryTools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tools">
+        <PropertyRef Name="idTool" />
+      </Principal>
+      <Dependent Role="InventoryTools">
+        <PropertyRef Name="idTool" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryWoodDetails_WoodDetails">
+    <End Role="WoodDetails" Type="Self.WoodDetails" Multiplicity="1" />
+    <End Role="InventoryWoodDetails" Type="Self.InventoryWoodDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WoodDetails">
+        <PropertyRef Name="idWoodDetail" />
+      </Principal>
+      <Dependent Role="InventoryWoodDetails">
+        <PropertyRef Name="idWoodDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Materials_TypeMaterials">
+    <End Role="TypeMaterials" Type="Self.TypeMaterials" Multiplicity="1" />
+    <End Role="Materials" Type="Self.Materials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeMaterials">
+        <PropertyRef Name="idTypeMaterial" />
+      </Principal>
+      <Dependent Role="Materials">
+        <PropertyRef Name="idTypeMaterial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductReceiptDetails_MetalDetails">
+    <End Role="MetalDetails" Type="Self.MetalDetails" Multiplicity="0..1" />
+    <End Role="ProductReceiptDetails" Type="Self.ProductReceiptDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MetalDetails">
+        <PropertyRef Name="idMetalDetail" />
+      </Principal>
+      <Dependent Role="ProductReceiptDetails">
+        <PropertyRef Name="idMetalDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductReceiptDetails_ProductReceipts">
+    <End Role="ProductReceipts" Type="Self.ProductReceipts" Multiplicity="1" />
+    <End Role="ProductReceiptDetails" Type="Self.ProductReceiptDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductReceipts">
+        <PropertyRef Name="idProductReceipt" />
+      </Principal>
+      <Dependent Role="ProductReceiptDetails">
+        <PropertyRef Name="idProductReceipt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductReceiptDetails_WoodDetails">
+    <End Role="WoodDetails" Type="Self.WoodDetails" Multiplicity="0..1" />
+    <End Role="ProductReceiptDetails" Type="Self.ProductReceiptDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WoodDetails">
+        <PropertyRef Name="idWoodDetail" />
+      </Principal>
+      <Dependent Role="ProductReceiptDetails">
+        <PropertyRef Name="idWoodDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductReceipts_Machines">
+    <End Role="Machines" Type="Self.Machines" Multiplicity="0..1" />
+    <End Role="ProductReceipts" Type="Self.ProductReceipts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machines">
+        <PropertyRef Name="idMachine" />
+      </Principal>
+      <Dependent Role="ProductReceipts">
+        <PropertyRef Name="idMachine" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductReceipts_Tools">
+    <End Role="Tools" Type="Self.Tools" Multiplicity="0..1" />
+    <End Role="ProductReceipts" Type="Self.ProductReceipts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tools">
+        <PropertyRef Name="idTool" />
+      </Principal>
+      <Dependent Role="ProductReceipts">
+        <PropertyRef Name="idTool" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductReceiptsComponents_Components">
+    <End Role="Components" Type="Self.Components" Multiplicity="0..1" />
+    <End Role="ProductReceiptsComponents" Type="Self.ProductReceiptsComponents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Components">
+        <PropertyRef Name="idComponent" />
+      </Principal>
+      <Dependent Role="ProductReceiptsComponents">
+        <PropertyRef Name="idComponent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductReceiptsComponents_ProductReceipts">
+    <End Role="ProductReceipts" Type="Self.ProductReceipts" Multiplicity="1" />
+    <End Role="ProductReceiptsComponents" Type="Self.ProductReceiptsComponents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductReceipts">
+        <PropertyRef Name="idProductReceipt" />
+      </Principal>
+      <Dependent Role="ProductReceiptsComponents">
+        <PropertyRef Name="idProductReceipt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_ProductReceipts">
+    <End Role="ProductReceipts" Type="Self.ProductReceipts" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductReceipts">
+        <PropertyRef Name="idProductReceipt" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="idProductReceipt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WoodDetails_DetailReceipts">
+    <End Role="DetailReceipts" Type="Self.DetailReceipts" Multiplicity="0..1" />
+    <End Role="WoodDetails" Type="Self.WoodDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DetailReceipts">
+        <PropertyRef Name="idDetailReceipt" />
+      </Principal>
+      <Dependent Role="WoodDetails">
+        <PropertyRef Name="idDetailReceipt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище CarpentryShopModelContainer">
+    <EntitySet Name="Carpenter" EntityType="Self.Carpenter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComponentReceipts" EntityType="Self.ComponentReceipts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Components" EntityType="Self.Components" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailReceipts" EntityType="Self.DetailReceipts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InventoryCarpenter" EntityType="Self.InventoryCarpenter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InventoryMaterials" EntityType="Self.InventoryMaterials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InventoryMetalDetails" EntityType="Self.InventoryMetalDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InventoryTools" EntityType="Self.InventoryTools" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InventoryWoodDetails" EntityType="Self.InventoryWoodDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Machines" EntityType="Self.Machines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Materials" EntityType="Self.Materials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MetalDetails" EntityType="Self.MetalDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductReceiptDetails" EntityType="Self.ProductReceiptDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductReceipts" EntityType="Self.ProductReceipts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductReceiptsComponents" EntityType="Self.ProductReceiptsComponents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tools" EntityType="Self.Tools" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeMaterials" EntityType="Self.TypeMaterials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WoodDetails" EntityType="Self.WoodDetails" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ComponentReceipts_MetalDetails" Association="Self.FK_ComponentReceipts_MetalDetails">
+      <End Role="MetalDetails" EntitySet="MetalDetails" />
+      <End Role="ComponentReceipts" EntitySet="ComponentReceipts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComponentReceipts_WoodDetails" Association="Self.FK_ComponentReceipts_WoodDetails">
+      <End Role="WoodDetails" EntitySet="WoodDetails" />
+      <End Role="ComponentReceipts" EntitySet="ComponentReceipts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Components_ComponentReceipts" Association="Self.FK_Components_ComponentReceipts">
+      <End Role="ComponentReceipts" EntitySet="ComponentReceipts" />
+      <End Role="Components" EntitySet="Components" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetailReceipts_Machines" Association="Self.FK_DetailReceipts_Machines">
+      <End Role="Machines" EntitySet="Machines" />
+      <End Role="DetailReceipts" EntitySet="DetailReceipts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetailReceipts_Materials" Association="Self.FK_DetailReceipts_Materials">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="DetailReceipts" EntitySet="DetailReceipts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetailReceipts_Tools" Association="Self.FK_DetailReceipts_Tools">
+      <End Role="Tools" EntitySet="Tools" />
+      <End Role="DetailReceipts" EntitySet="DetailReceipts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Details_DetailReceipts" Association="Self.FK_Details_DetailReceipts">
+      <End Role="DetailReceipts" EntitySet="DetailReceipts" />
+      <End Role="MetalDetails" EntitySet="MetalDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryCarpenter_Carpenter" Association="Self.FK_InventoryCarpenter_Carpenter">
+      <End Role="Carpenter" EntitySet="Carpenter" />
+      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryCarpenter_InventoryDetails" Association="Self.FK_InventoryCarpenter_InventoryDetails">
+      <End Role="InventoryMetalDetails" EntitySet="InventoryMetalDetails" />
+      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryCarpenter_InventoryMaterials" Association="Self.FK_InventoryCarpenter_InventoryMaterials">
+      <End Role="InventoryMaterials" EntitySet="InventoryMaterials" />
+      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryCarpenter_InventoryTools" Association="Self.FK_InventoryCarpenter_InventoryTools">
+      <End Role="InventoryTools" EntitySet="InventoryTools" />
+      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryCarpenter_InventoryWoodDetails" Association="Self.FK_InventoryCarpenter_InventoryWoodDetails">
+      <End Role="InventoryWoodDetails" EntitySet="InventoryWoodDetails" />
+      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryDetails_Details" Association="Self.FK_InventoryDetails_Details">
+      <End Role="MetalDetails" EntitySet="MetalDetails" />
+      <End Role="InventoryMetalDetails" EntitySet="InventoryMetalDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryMaterials_Materials" Association="Self.FK_InventoryMaterials_Materials">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="InventoryMaterials" EntitySet="InventoryMaterials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryTools_Tools" Association="Self.FK_InventoryTools_Tools">
+      <End Role="Tools" EntitySet="Tools" />
+      <End Role="InventoryTools" EntitySet="InventoryTools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryWoodDetails_WoodDetails" Association="Self.FK_InventoryWoodDetails_WoodDetails">
+      <End Role="WoodDetails" EntitySet="WoodDetails" />
+      <End Role="InventoryWoodDetails" EntitySet="InventoryWoodDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Materials_TypeMaterials" Association="Self.FK_Materials_TypeMaterials">
+      <End Role="TypeMaterials" EntitySet="TypeMaterials" />
+      <End Role="Materials" EntitySet="Materials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductReceiptDetails_MetalDetails" Association="Self.FK_ProductReceiptDetails_MetalDetails">
+      <End Role="MetalDetails" EntitySet="MetalDetails" />
+      <End Role="ProductReceiptDetails" EntitySet="ProductReceiptDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductReceiptDetails_ProductReceipts" Association="Self.FK_ProductReceiptDetails_ProductReceipts">
+      <End Role="ProductReceipts" EntitySet="ProductReceipts" />
+      <End Role="ProductReceiptDetails" EntitySet="ProductReceiptDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductReceiptDetails_WoodDetails" Association="Self.FK_ProductReceiptDetails_WoodDetails">
+      <End Role="WoodDetails" EntitySet="WoodDetails" />
+      <End Role="ProductReceiptDetails" EntitySet="ProductReceiptDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductReceipts_Machines" Association="Self.FK_ProductReceipts_Machines">
+      <End Role="Machines" EntitySet="Machines" />
+      <End Role="ProductReceipts" EntitySet="ProductReceipts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductReceipts_Tools" Association="Self.FK_ProductReceipts_Tools">
+      <End Role="Tools" EntitySet="Tools" />
+      <End Role="ProductReceipts" EntitySet="ProductReceipts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductReceiptsComponents_Components" Association="Self.FK_ProductReceiptsComponents_Components">
+      <End Role="Components" EntitySet="Components" />
+      <End Role="ProductReceiptsComponents" EntitySet="ProductReceiptsComponents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductReceiptsComponents_ProductReceipts" Association="Self.FK_ProductReceiptsComponents_ProductReceipts">
+      <End Role="ProductReceipts" EntitySet="ProductReceipts" />
+      <End Role="ProductReceiptsComponents" EntitySet="ProductReceiptsComponents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_ProductReceipts" Association="Self.FK_Products_ProductReceipts">
+      <End Role="ProductReceipts" EntitySet="ProductReceipts" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WoodDetails_DetailReceipts" Association="Self.FK_WoodDetails_DetailReceipts">
+      <End Role="DetailReceipts" EntitySet="DetailReceipts" />
+      <End Role="WoodDetails" EntitySet="WoodDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
