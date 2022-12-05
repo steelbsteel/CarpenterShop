@@ -31,6 +31,7 @@ namespace CarpentryShop.CarpentryShopDB
         public virtual DbSet<Components> Components { get; set; }
         public virtual DbSet<DetailReceipts> DetailReceipts { get; set; }
         public virtual DbSet<InventoryCarpenter> InventoryCarpenter { get; set; }
+        public virtual DbSet<InventoryComponents> InventoryComponents { get; set; }
         public virtual DbSet<InventoryMaterials> InventoryMaterials { get; set; }
         public virtual DbSet<InventoryMetalDetails> InventoryMetalDetails { get; set; }
         public virtual DbSet<InventoryTools> InventoryTools { get; set; }

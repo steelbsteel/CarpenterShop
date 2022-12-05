@@ -38,14 +38,62 @@
             <TextBlock Text="Inventory" FontSize="48" FontWeight="Bold"></TextBlock>
         </StackPanel>
 
-        <ListView Grid.Row="1" Grid.Column="1">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBlock Text="Tools" FontSize="36"></TextBlock>
+            <ListView x:Name="ToolsList" HorizontalAlignment="Left">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Image Source="{Binding ImageTool}" Width="60" Height="60"></Image>
+                            <TextBlock Text="{Binding NameTool}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock Text="Materials" FontSize="36"></TextBlock>
+            <ListView x:Name="MaterialsList" HorizontalAlignment="Left">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Image Source="{Binding ImageMaterial}" Width="60" Height="60"></Image>
+                            <TextBlock Text="{Binding NameMaterial}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock Text="Wood Details" FontSize="36"></TextBlock>
+            <ListView x:Name="WoodDetailsList" HorizontalAlignment="Left">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Image Source="{Binding ImageMaterial}" Width="60" Height="60"></Image>
+                            <TextBlock Text="{Binding NameMaterial}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock Text="Metal Details" FontSize="36"></TextBlock>
+            <ListView x:Name="MetalDetailsList" HorizontalAlignment="Left">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Image Source="{Binding ImageMaterial}" Width="60" Height="60"></Image>
+                            <TextBlock Text="{Binding NameMaterial}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock Text="Components" FontSize="36"></TextBlock>
+            <ListView x:Name="ComponentsList" HorizontalAlignment="Left">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Image Source="{Binding ImageMaterial}" Width="60" Height="60"></Image>
+                            <TextBlock Text="{Binding NameMaterial}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Window>

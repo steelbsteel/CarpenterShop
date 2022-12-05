@@ -14,17 +14,11 @@ namespace CarpentryShop.CarpentryShopDB
     
     public partial class InventoryMaterials
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public InventoryMaterials()
-        {
-            this.InventoryCarpenter = new HashSet<InventoryCarpenter>();
-        }
-    
         public int idInventoryMaterial { get; set; }
         public int idMaterial { get; set; }
+        public int idInventory { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InventoryCarpenter> InventoryCarpenter { get; set; }
+        public virtual InventoryCarpenter InventoryCarpenter { get; set; }
         public virtual Materials Materials { get; set; }
     }
 }

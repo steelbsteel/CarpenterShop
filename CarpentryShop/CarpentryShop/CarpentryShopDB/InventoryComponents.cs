@@ -12,13 +12,12 @@ namespace CarpentryShop.CarpentryShopDB
     using System;
     using System.Collections.Generic;
     
-    public partial class InventoryWoodDetails
+    public partial class InventoryComponents
     {
-        public int idInventoryWoodDetail { get; set; }
-        public int idWoodDetail { get; set; }
+        public int idInventoryComponent { get; set; }
+        public int idComponent { get; set; }
         public int idInventory { get; set; }
     
         public virtual InventoryCarpenter InventoryCarpenter { get; set; }
-        public virtual WoodDetails WoodDetails { get; set; }
     }
 }

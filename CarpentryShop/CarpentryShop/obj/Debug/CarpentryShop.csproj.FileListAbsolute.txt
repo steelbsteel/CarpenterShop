@@ -24,3 +24,13 @@ C:\Users\202001\source\repos\CarpentryShop\CarpentryShop\obj\Debug\Windows\Menu.
 C:\Users\202001\source\repos\CarpentryShop\CarpentryShop\obj\Debug\App.baml
 C:\Users\202001\source\repos\CarpentryShop\CarpentryShop\obj\Debug\Windows\CarpenterWindow.g.cs
 C:\Users\202001\source\repos\CarpentryShop\CarpentryShop\obj\Debug\Windows\CarpenterWindow.baml
+C:\Users\202001\Source\Repos\CarpenterShop\CarpentryShop\CarpentryShop\obj\Debug\CarpentryShop.csproj.AssemblyReference.cache
+C:\Users\202001\Source\Repos\CarpenterShop\CarpentryShop\CarpentryShop\obj\Debug\CarpentryShop.csproj.SuggestedBindingRedirects.cache
+C:\Users\202001\Source\Repos\CarpenterShop\CarpentryShop\CarpentryShop\obj\Debug\Windows\CarpenterWindow.g.cs
+C:\Users\202001\Source\Repos\CarpenterShop\CarpentryShop\CarpentryShop\obj\Debug\Windows\Menu.g.cs
+C:\Users\202001\Source\Repos\CarpenterShop\CarpentryShop\CarpentryShop\obj\Debug\App.g.cs
+C:\Users\202001\Source\Repos\CarpenterShop\CarpentryShop\CarpentryShop\obj\Debug\CarpentryShop_Content.g.cs
+C:\Users\202001\Source\Repos\CarpenterShop\CarpentryShop\CarpentryShop\obj\Debug\CarpentryShop_MarkupCompile.cache
+C:\Users\202001\Source\Repos\CarpenterShop\CarpentryShop\CarpentryShop\obj\Debug\CarpentryShop_MarkupCompile.lref
+C:\Users\202001\Source\Repos\CarpenterShop\CarpentryShop\CarpentryShop\obj\Debug\CarpentryShop.exe
+C:\Users\202001\Source\Repos\CarpenterShop\CarpentryShop\CarpentryShop\obj\Debug\CarpentryShop.pdb

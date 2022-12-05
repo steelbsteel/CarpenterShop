@@ -35,6 +35,53 @@ namespace CarpentryShop.Windows
             StaminaTextBlock.Text = carpenter.StaminaCarpenter.ToString();
             BalanceTextBlock.Text = carpenter.BalanceCarpenter.ToString();
 
+            List<Tools> tools = new List<Tools>();
+            List<Materials> materials = new List<Materials>();
+            List<MetalDetails> metalDetails = new List<MetalDetails>();
+            List<WoodDetails> woodDetails = new List<WoodDetails>();
+            List<Components> components = new List<Components>();
+
+            foreach (var tool in App.Connection.InventoryTools)
+            {
+                int id = tool.idTool;
+                Tools currentTool = App.Connection.Tools.FirstOrDefault(x => x.idTool == id);
+                tools.Add(currentTool);
+            }
+
+            foreach (var material in App.Connection.InventoryMaterials)
+            {
+                int id = material.idMaterial;
+                Materials currentMaterial = App.Connection.Materials.FirstOrDefault(x => x.idMaterial == id);
+                materials.Add(currentMaterial);
+            }
+
+            foreach (var woodDetail in App.Connection.InventoryWoodDetails)
+            {
+                int id = woodDetail.idWoodDetail;
+                WoodDetails currentWoodDetail = App.Connection.WoodDetails.FirstOrDefault(x => x.idWoodDetail == id);
+                woodDetails.Add(currentWoodDetail);
+            }
+
+
+            foreach (var metalDetail in App.Connection.InventoryMetalDetails)
+            {
+                int id = metalDetail.idMetalDetail;
+                MetalDetails currentMetalDetail = App.Connection.MetalDetails.FirstOrDefault(x => x.idMetalDetail == id);
+                metalDetails.Add(currentMetalDetail);
+            }
+
+            foreach (var component in App.Connection.InventoryComponents)
+            {
+                int id = component.idComponent;
+                Components currentComponent = App.Connection.Components.FirstOrDefault(x => x.idComponent == id);
+                components.Add(currentComponent);
+            }
+
+            ToolsList.ItemsSource = tools;
+            MaterialsList.ItemsSource = materials;
+            WoodDetailsList.ItemsSource = woodDetails;
+            MetalDetailsList.ItemsSource = metalDetails;
+            ComponentsList.ItemsSource = components;
         }
 
         private void EventChangePhoto(object sender, RoutedEventArgs e)

@@ -45,10 +45,14 @@
     </Key>
     <Property Name="idInventory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idCarpenter" Type="int" Nullable="false" />
-    <Property Name="idInventoryTool" Type="int" />
-    <Property Name="idInventoryMetalDetails" Type="int" />
-    <Property Name="idInventoryMaterials" Type="int" />
-    <Property Name="idInventoryWoodDetails" Type="int" />
+  </EntityType>
+  <EntityType Name="InventoryComponents">
+    <Key>
+      <PropertyRef Name="idInventoryComponent" />
+    </Key>
+    <Property Name="idInventoryComponent" Type="int" Nullable="false" />
+    <Property Name="idComponent" Type="int" Nullable="false" />
+    <Property Name="idInventory" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="InventoryMaterials">
     <Key>
@@ -56,6 +60,7 @@
     </Key>
     <Property Name="idInventoryMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idMaterial" Type="int" Nullable="false" />
+    <Property Name="idInventory" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="InventoryMetalDetails">
     <Key>
@@ -63,6 +68,7 @@
     </Key>
     <Property Name="idInventoryMetalDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idMetalDetail" Type="int" Nullable="false" />
+    <Property Name="idInventory" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="InventoryTools">
     <Key>
@@ -70,6 +76,7 @@
     </Key>
     <Property Name="idInventoryTool" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idTool" Type="int" Nullable="false" />
+    <Property Name="idInventory" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="InventoryWoodDetails">
     <Key>
@@ -77,6 +84,7 @@
     </Key>
     <Property Name="idInventoryWoodDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idWoodDetail" Type="int" Nullable="false" />
+    <Property Name="idInventory" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Machines">
     <Key>
@@ -258,51 +266,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_InventoryCarpenter_InventoryDetails">
-    <End Role="InventoryMetalDetails" Type="Self.InventoryMetalDetails" Multiplicity="0..1" />
-    <End Role="InventoryCarpenter" Type="Self.InventoryCarpenter" Multiplicity="*" />
+  <Association Name="FK_InventoryComponents_InventoryCarpenter">
+    <End Role="InventoryCarpenter" Type="Self.InventoryCarpenter" Multiplicity="1" />
+    <End Role="InventoryComponents" Type="Self.InventoryComponents" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="InventoryMetalDetails">
-        <PropertyRef Name="idInventoryMetalDetail" />
+      <Principal Role="InventoryCarpenter">
+        <PropertyRef Name="idInventory" />
       </Principal>
-      <Dependent Role="InventoryCarpenter">
-        <PropertyRef Name="idInventoryMetalDetails" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_InventoryCarpenter_InventoryMaterials">
-    <End Role="InventoryMaterials" Type="Self.InventoryMaterials" Multiplicity="0..1" />
-    <End Role="InventoryCarpenter" Type="Self.InventoryCarpenter" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="InventoryMaterials">
-        <PropertyRef Name="idInventoryMaterial" />
-      </Principal>
-      <Dependent Role="InventoryCarpenter">
-        <PropertyRef Name="idInventoryMaterials" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_InventoryCarpenter_InventoryTools">
-    <End Role="InventoryTools" Type="Self.InventoryTools" Multiplicity="0..1" />
-    <End Role="InventoryCarpenter" Type="Self.InventoryCarpenter" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="InventoryTools">
-        <PropertyRef Name="idInventoryTool" />
-      </Principal>
-      <Dependent Role="InventoryCarpenter">
-        <PropertyRef Name="idInventoryTool" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_InventoryCarpenter_InventoryWoodDetails">
-    <End Role="InventoryWoodDetails" Type="Self.InventoryWoodDetails" Multiplicity="0..1" />
-    <End Role="InventoryCarpenter" Type="Self.InventoryCarpenter" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="InventoryWoodDetails">
-        <PropertyRef Name="idInventoryWoodDetail" />
-      </Principal>
-      <Dependent Role="InventoryCarpenter">
-        <PropertyRef Name="idInventoryWoodDetails" />
+      <Dependent Role="InventoryComponents">
+        <PropertyRef Name="idInventory" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -318,6 +290,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_InventoryMaterials_InventoryCarpenter">
+    <End Role="InventoryCarpenter" Type="Self.InventoryCarpenter" Multiplicity="1" />
+    <End Role="InventoryMaterials" Type="Self.InventoryMaterials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryCarpenter">
+        <PropertyRef Name="idInventory" />
+      </Principal>
+      <Dependent Role="InventoryMaterials">
+        <PropertyRef Name="idInventory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_InventoryMaterials_Materials">
     <End Role="Materials" Type="Self.Materials" Multiplicity="1" />
     <End Role="InventoryMaterials" Type="Self.InventoryMaterials" Multiplicity="*" />
@@ -330,6 +314,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_InventoryMetalDetails_InventoryCarpenter">
+    <End Role="InventoryCarpenter" Type="Self.InventoryCarpenter" Multiplicity="1" />
+    <End Role="InventoryMetalDetails" Type="Self.InventoryMetalDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryCarpenter">
+        <PropertyRef Name="idInventory" />
+      </Principal>
+      <Dependent Role="InventoryMetalDetails">
+        <PropertyRef Name="idInventory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryTools_InventoryCarpenter">
+    <End Role="InventoryCarpenter" Type="Self.InventoryCarpenter" Multiplicity="1" />
+    <End Role="InventoryTools" Type="Self.InventoryTools" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryCarpenter">
+        <PropertyRef Name="idInventory" />
+      </Principal>
+      <Dependent Role="InventoryTools">
+        <PropertyRef Name="idInventory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_InventoryTools_Tools">
     <End Role="Tools" Type="Self.Tools" Multiplicity="1" />
     <End Role="InventoryTools" Type="Self.InventoryTools" Multiplicity="*" />
@@ -339,6 +347,18 @@
       </Principal>
       <Dependent Role="InventoryTools">
         <PropertyRef Name="idTool" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryWoodDetails_InventoryCarpenter">
+    <End Role="InventoryCarpenter" Type="Self.InventoryCarpenter" Multiplicity="1" />
+    <End Role="InventoryWoodDetails" Type="Self.InventoryWoodDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryCarpenter">
+        <PropertyRef Name="idInventory" />
+      </Principal>
+      <Dependent Role="InventoryWoodDetails">
+        <PropertyRef Name="idInventory" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -480,6 +500,7 @@
     <EntitySet Name="Components" EntityType="Self.Components" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DetailReceipts" EntityType="Self.DetailReceipts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InventoryCarpenter" EntityType="Self.InventoryCarpenter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InventoryComponents" EntityType="Self.InventoryComponents" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InventoryMaterials" EntityType="Self.InventoryMaterials" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InventoryMetalDetails" EntityType="Self.InventoryMetalDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InventoryTools" EntityType="Self.InventoryTools" Schema="dbo" store:Type="Tables" />
@@ -526,33 +547,37 @@
       <End Role="Carpenter" EntitySet="Carpenter" />
       <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
     </AssociationSet>
-    <AssociationSet Name="FK_InventoryCarpenter_InventoryDetails" Association="Self.FK_InventoryCarpenter_InventoryDetails">
-      <End Role="InventoryMetalDetails" EntitySet="InventoryMetalDetails" />
+    <AssociationSet Name="FK_InventoryComponents_InventoryCarpenter" Association="Self.FK_InventoryComponents_InventoryCarpenter">
       <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
-    </AssociationSet>
-    <AssociationSet Name="FK_InventoryCarpenter_InventoryMaterials" Association="Self.FK_InventoryCarpenter_InventoryMaterials">
-      <End Role="InventoryMaterials" EntitySet="InventoryMaterials" />
-      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
-    </AssociationSet>
-    <AssociationSet Name="FK_InventoryCarpenter_InventoryTools" Association="Self.FK_InventoryCarpenter_InventoryTools">
-      <End Role="InventoryTools" EntitySet="InventoryTools" />
-      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
-    </AssociationSet>
-    <AssociationSet Name="FK_InventoryCarpenter_InventoryWoodDetails" Association="Self.FK_InventoryCarpenter_InventoryWoodDetails">
-      <End Role="InventoryWoodDetails" EntitySet="InventoryWoodDetails" />
-      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
+      <End Role="InventoryComponents" EntitySet="InventoryComponents" />
     </AssociationSet>
     <AssociationSet Name="FK_InventoryDetails_Details" Association="Self.FK_InventoryDetails_Details">
       <End Role="MetalDetails" EntitySet="MetalDetails" />
       <End Role="InventoryMetalDetails" EntitySet="InventoryMetalDetails" />
     </AssociationSet>
+    <AssociationSet Name="FK_InventoryMaterials_InventoryCarpenter" Association="Self.FK_InventoryMaterials_InventoryCarpenter">
+      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
+      <End Role="InventoryMaterials" EntitySet="InventoryMaterials" />
+    </AssociationSet>
     <AssociationSet Name="FK_InventoryMaterials_Materials" Association="Self.FK_InventoryMaterials_Materials">
       <End Role="Materials" EntitySet="Materials" />
       <End Role="InventoryMaterials" EntitySet="InventoryMaterials" />
     </AssociationSet>
+    <AssociationSet Name="FK_InventoryMetalDetails_InventoryCarpenter" Association="Self.FK_InventoryMetalDetails_InventoryCarpenter">
+      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
+      <End Role="InventoryMetalDetails" EntitySet="InventoryMetalDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryTools_InventoryCarpenter" Association="Self.FK_InventoryTools_InventoryCarpenter">
+      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
+      <End Role="InventoryTools" EntitySet="InventoryTools" />
+    </AssociationSet>
     <AssociationSet Name="FK_InventoryTools_Tools" Association="Self.FK_InventoryTools_Tools">
       <End Role="Tools" EntitySet="Tools" />
       <End Role="InventoryTools" EntitySet="InventoryTools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryWoodDetails_InventoryCarpenter" Association="Self.FK_InventoryWoodDetails_InventoryCarpenter">
+      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
+      <End Role="InventoryWoodDetails" EntitySet="InventoryWoodDetails" />
     </AssociationSet>
     <AssociationSet Name="FK_InventoryWoodDetails_WoodDetails" Association="Self.FK_InventoryWoodDetails_WoodDetails">
       <End Role="WoodDetails" EntitySet="WoodDetails" />

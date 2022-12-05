@@ -56,18 +56,24 @@
     <EntitySetMapping Name="InventoryCarpenter">
       <EntityTypeMapping TypeName="CarpentryShopModel.InventoryCarpenter">
         <MappingFragment StoreEntitySet="InventoryCarpenter">
-          <ScalarProperty Name="idInventoryWoodDetails" ColumnName="idInventoryWoodDetails" />
-          <ScalarProperty Name="idInventoryMaterials" ColumnName="idInventoryMaterials" />
-          <ScalarProperty Name="idInventoryMetalDetails" ColumnName="idInventoryMetalDetails" />
-          <ScalarProperty Name="idInventoryTool" ColumnName="idInventoryTool" />
           <ScalarProperty Name="idCarpenter" ColumnName="idCarpenter" />
           <ScalarProperty Name="idInventory" ColumnName="idInventory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InventoryComponents">
+      <EntityTypeMapping TypeName="CarpentryShopModel.InventoryComponents">
+        <MappingFragment StoreEntitySet="InventoryComponents">
+          <ScalarProperty Name="idInventory" ColumnName="idInventory" />
+          <ScalarProperty Name="idComponent" ColumnName="idComponent" />
+          <ScalarProperty Name="idInventoryComponent" ColumnName="idInventoryComponent" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="InventoryMaterials">
       <EntityTypeMapping TypeName="CarpentryShopModel.InventoryMaterials">
         <MappingFragment StoreEntitySet="InventoryMaterials">
+          <ScalarProperty Name="idInventory" ColumnName="idInventory" />
           <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
           <ScalarProperty Name="idInventoryMaterial" ColumnName="idInventoryMaterial" />
         </MappingFragment>
@@ -76,6 +82,7 @@
     <EntitySetMapping Name="InventoryMetalDetails">
       <EntityTypeMapping TypeName="CarpentryShopModel.InventoryMetalDetails">
         <MappingFragment StoreEntitySet="InventoryMetalDetails">
+          <ScalarProperty Name="idInventory" ColumnName="idInventory" />
           <ScalarProperty Name="idMetalDetail" ColumnName="idMetalDetail" />
           <ScalarProperty Name="idInventoryMetalDetail" ColumnName="idInventoryMetalDetail" />
         </MappingFragment>
@@ -84,6 +91,7 @@
     <EntitySetMapping Name="InventoryTools">
       <EntityTypeMapping TypeName="CarpentryShopModel.InventoryTools">
         <MappingFragment StoreEntitySet="InventoryTools">
+          <ScalarProperty Name="idInventory" ColumnName="idInventory" />
           <ScalarProperty Name="idTool" ColumnName="idTool" />
           <ScalarProperty Name="idInventoryTool" ColumnName="idInventoryTool" />
         </MappingFragment>
@@ -92,6 +100,7 @@
     <EntitySetMapping Name="InventoryWoodDetails">
       <EntityTypeMapping TypeName="CarpentryShopModel.InventoryWoodDetails">
         <MappingFragment StoreEntitySet="InventoryWoodDetails">
+          <ScalarProperty Name="idInventory" ColumnName="idInventory" />
           <ScalarProperty Name="idWoodDetail" ColumnName="idWoodDetail" />
           <ScalarProperty Name="idInventoryWoodDetail" ColumnName="idInventoryWoodDetail" />
         </MappingFragment>

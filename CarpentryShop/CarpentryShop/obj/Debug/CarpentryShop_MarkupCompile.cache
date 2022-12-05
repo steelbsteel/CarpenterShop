@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\202001\source\repos\CarpentryShop\CarpentryShop\obj\Debug\
+C:\Users\202001\Source\Repos\CarpenterShop\CarpentryShop\CarpentryShop\obj\Debug\
 CarpentryShop
 none
 false
 DEBUG;TRACE
-C:\Users\202001\source\repos\CarpentryShop\CarpentryShop\App.xaml
+C:\Users\202001\Source\Repos\CarpenterShop\CarpentryShop\CarpentryShop\App.xaml
 2467478071
 3483291193
-28-399813143
-18642225165
+29370232243
+18739743949
 Windows\CarpenterWindow.xaml;Windows\Menu.xaml;
 
-False
+True
 

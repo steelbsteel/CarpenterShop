@@ -17,6 +17,7 @@
     <EntitySet Name="Components" EntityType="CarpentryShopModel.Components" />
     <EntitySet Name="DetailReceipts" EntityType="CarpentryShopModel.DetailReceipts" />
     <EntitySet Name="InventoryCarpenter" EntityType="CarpentryShopModel.InventoryCarpenter" />
+    <EntitySet Name="InventoryComponents" EntityType="CarpentryShopModel.InventoryComponents" />
     <EntitySet Name="InventoryMaterials" EntityType="CarpentryShopModel.InventoryMaterials" />
     <EntitySet Name="InventoryMetalDetails" EntityType="CarpentryShopModel.InventoryMetalDetails" />
     <EntitySet Name="InventoryTools" EntityType="CarpentryShopModel.InventoryTools" />
@@ -70,21 +71,25 @@
       <End Role="DetailReceipts" EntitySet="DetailReceipts" />
       <End Role="WoodDetails" EntitySet="WoodDetails" />
     </AssociationSet>
-    <AssociationSet Name="FK_InventoryCarpenter_InventoryDetails" Association="CarpentryShopModel.FK_InventoryCarpenter_InventoryDetails">
-      <End Role="InventoryMetalDetails" EntitySet="InventoryMetalDetails" />
+    <AssociationSet Name="FK_InventoryComponents_InventoryCarpenter" Association="CarpentryShopModel.FK_InventoryComponents_InventoryCarpenter">
       <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
+      <End Role="InventoryComponents" EntitySet="InventoryComponents" />
     </AssociationSet>
-    <AssociationSet Name="FK_InventoryCarpenter_InventoryMaterials" Association="CarpentryShopModel.FK_InventoryCarpenter_InventoryMaterials">
+    <AssociationSet Name="FK_InventoryMaterials_InventoryCarpenter" Association="CarpentryShopModel.FK_InventoryMaterials_InventoryCarpenter">
+      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
       <End Role="InventoryMaterials" EntitySet="InventoryMaterials" />
-      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
     </AssociationSet>
-    <AssociationSet Name="FK_InventoryCarpenter_InventoryTools" Association="CarpentryShopModel.FK_InventoryCarpenter_InventoryTools">
+    <AssociationSet Name="FK_InventoryMetalDetails_InventoryCarpenter" Association="CarpentryShopModel.FK_InventoryMetalDetails_InventoryCarpenter">
+      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
+      <End Role="InventoryMetalDetails" EntitySet="InventoryMetalDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryTools_InventoryCarpenter" Association="CarpentryShopModel.FK_InventoryTools_InventoryCarpenter">
+      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
       <End Role="InventoryTools" EntitySet="InventoryTools" />
-      <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
     </AssociationSet>
-    <AssociationSet Name="FK_InventoryCarpenter_InventoryWoodDetails" Association="CarpentryShopModel.FK_InventoryCarpenter_InventoryWoodDetails">
-      <End Role="InventoryWoodDetails" EntitySet="InventoryWoodDetails" />
+    <AssociationSet Name="FK_InventoryWoodDetails_InventoryCarpenter" Association="CarpentryShopModel.FK_InventoryWoodDetails_InventoryCarpenter">
       <End Role="InventoryCarpenter" EntitySet="InventoryCarpenter" />
+      <End Role="InventoryWoodDetails" EntitySet="InventoryWoodDetails" />
     </AssociationSet>
     <AssociationSet Name="FK_InventoryMaterials_Materials" Association="CarpentryShopModel.FK_InventoryMaterials_Materials">
       <End Role="Materials" EntitySet="Materials" />
@@ -191,15 +196,21 @@
     </Key>
     <Property Name="idInventory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idCarpenter" Type="Int32" Nullable="false" />
-    <Property Name="idInventoryTool" Type="Int32" />
-    <Property Name="idInventoryMetalDetails" Type="Int32" />
-    <Property Name="idInventoryMaterials" Type="Int32" />
-    <Property Name="idInventoryWoodDetails" Type="Int32" />
     <NavigationProperty Name="Carpenter" Relationship="CarpentryShopModel.FK_InventoryCarpenter_Carpenter" FromRole="InventoryCarpenter" ToRole="Carpenter" />
-    <NavigationProperty Name="InventoryMetalDetails" Relationship="CarpentryShopModel.FK_InventoryCarpenter_InventoryDetails" FromRole="InventoryCarpenter" ToRole="InventoryMetalDetails" />
-    <NavigationProperty Name="InventoryMaterials" Relationship="CarpentryShopModel.FK_InventoryCarpenter_InventoryMaterials" FromRole="InventoryCarpenter" ToRole="InventoryMaterials" />
-    <NavigationProperty Name="InventoryTools" Relationship="CarpentryShopModel.FK_InventoryCarpenter_InventoryTools" FromRole="InventoryCarpenter" ToRole="InventoryTools" />
-    <NavigationProperty Name="InventoryWoodDetails" Relationship="CarpentryShopModel.FK_InventoryCarpenter_InventoryWoodDetails" FromRole="InventoryCarpenter" ToRole="InventoryWoodDetails" />
+    <NavigationProperty Name="InventoryComponents" Relationship="CarpentryShopModel.FK_InventoryComponents_InventoryCarpenter" FromRole="InventoryCarpenter" ToRole="InventoryComponents" />
+    <NavigationProperty Name="InventoryMaterials" Relationship="CarpentryShopModel.FK_InventoryMaterials_InventoryCarpenter" FromRole="InventoryCarpenter" ToRole="InventoryMaterials" />
+    <NavigationProperty Name="InventoryMetalDetails" Relationship="CarpentryShopModel.FK_InventoryMetalDetails_InventoryCarpenter" FromRole="InventoryCarpenter" ToRole="InventoryMetalDetails" />
+    <NavigationProperty Name="InventoryTools" Relationship="CarpentryShopModel.FK_InventoryTools_InventoryCarpenter" FromRole="InventoryCarpenter" ToRole="InventoryTools" />
+    <NavigationProperty Name="InventoryWoodDetails" Relationship="CarpentryShopModel.FK_InventoryWoodDetails_InventoryCarpenter" FromRole="InventoryCarpenter" ToRole="InventoryWoodDetails" />
+  </EntityType>
+  <EntityType Name="InventoryComponents">
+    <Key>
+      <PropertyRef Name="idInventoryComponent" />
+    </Key>
+    <Property Name="idInventoryComponent" Type="Int32" Nullable="false" />
+    <Property Name="idComponent" Type="Int32" Nullable="false" />
+    <Property Name="idInventory" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="InventoryCarpenter" Relationship="CarpentryShopModel.FK_InventoryComponents_InventoryCarpenter" FromRole="InventoryComponents" ToRole="InventoryCarpenter" />
   </EntityType>
   <EntityType Name="InventoryMaterials">
     <Key>
@@ -207,7 +218,8 @@
     </Key>
     <Property Name="idInventoryMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idMaterial" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="InventoryCarpenter" Relationship="CarpentryShopModel.FK_InventoryCarpenter_InventoryMaterials" FromRole="InventoryMaterials" ToRole="InventoryCarpenter" />
+    <Property Name="idInventory" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="InventoryCarpenter" Relationship="CarpentryShopModel.FK_InventoryMaterials_InventoryCarpenter" FromRole="InventoryMaterials" ToRole="InventoryCarpenter" />
     <NavigationProperty Name="Materials" Relationship="CarpentryShopModel.FK_InventoryMaterials_Materials" FromRole="InventoryMaterials" ToRole="Materials" />
   </EntityType>
   <EntityType Name="InventoryMetalDetails">
@@ -216,7 +228,8 @@
     </Key>
     <Property Name="idInventoryMetalDetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idMetalDetail" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="InventoryCarpenter" Relationship="CarpentryShopModel.FK_InventoryCarpenter_InventoryDetails" FromRole="InventoryMetalDetails" ToRole="InventoryCarpenter" />
+    <Property Name="idInventory" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="InventoryCarpenter" Relationship="CarpentryShopModel.FK_InventoryMetalDetails_InventoryCarpenter" FromRole="InventoryMetalDetails" ToRole="InventoryCarpenter" />
     <NavigationProperty Name="MetalDetails" Relationship="CarpentryShopModel.FK_InventoryDetails_Details" FromRole="InventoryMetalDetails" ToRole="MetalDetails" />
   </EntityType>
   <EntityType Name="InventoryTools">
@@ -225,7 +238,8 @@
     </Key>
     <Property Name="idInventoryTool" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idTool" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="InventoryCarpenter" Relationship="CarpentryShopModel.FK_InventoryCarpenter_InventoryTools" FromRole="InventoryTools" ToRole="InventoryCarpenter" />
+    <Property Name="idInventory" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="InventoryCarpenter" Relationship="CarpentryShopModel.FK_InventoryTools_InventoryCarpenter" FromRole="InventoryTools" ToRole="InventoryCarpenter" />
     <NavigationProperty Name="Tools" Relationship="CarpentryShopModel.FK_InventoryTools_Tools" FromRole="InventoryTools" ToRole="Tools" />
   </EntityType>
   <EntityType Name="InventoryWoodDetails">
@@ -234,7 +248,8 @@
     </Key>
     <Property Name="idInventoryWoodDetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idWoodDetail" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="InventoryCarpenter" Relationship="CarpentryShopModel.FK_InventoryCarpenter_InventoryWoodDetails" FromRole="InventoryWoodDetails" ToRole="InventoryCarpenter" />
+    <Property Name="idInventory" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="InventoryCarpenter" Relationship="CarpentryShopModel.FK_InventoryWoodDetails_InventoryCarpenter" FromRole="InventoryWoodDetails" ToRole="InventoryCarpenter" />
     <NavigationProperty Name="WoodDetails" Relationship="CarpentryShopModel.FK_InventoryWoodDetails_WoodDetails" FromRole="InventoryWoodDetails" ToRole="WoodDetails" />
   </EntityType>
   <EntityType Name="Materials">
@@ -459,51 +474,63 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_InventoryCarpenter_InventoryDetails">
-    <End Type="CarpentryShopModel.InventoryMetalDetails" Role="InventoryMetalDetails" Multiplicity="0..1" />
-    <End Type="CarpentryShopModel.InventoryCarpenter" Role="InventoryCarpenter" Multiplicity="*" />
+  <Association Name="FK_InventoryComponents_InventoryCarpenter">
+    <End Type="CarpentryShopModel.InventoryCarpenter" Role="InventoryCarpenter" Multiplicity="1" />
+    <End Type="CarpentryShopModel.InventoryComponents" Role="InventoryComponents" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="InventoryMetalDetails">
-        <PropertyRef Name="idInventoryMetalDetail" />
+      <Principal Role="InventoryCarpenter">
+        <PropertyRef Name="idInventory" />
       </Principal>
-      <Dependent Role="InventoryCarpenter">
-        <PropertyRef Name="idInventoryMetalDetails" />
+      <Dependent Role="InventoryComponents">
+        <PropertyRef Name="idInventory" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_InventoryCarpenter_InventoryMaterials">
-    <End Type="CarpentryShopModel.InventoryMaterials" Role="InventoryMaterials" Multiplicity="0..1" />
-    <End Type="CarpentryShopModel.InventoryCarpenter" Role="InventoryCarpenter" Multiplicity="*" />
+  <Association Name="FK_InventoryMaterials_InventoryCarpenter">
+    <End Type="CarpentryShopModel.InventoryCarpenter" Role="InventoryCarpenter" Multiplicity="1" />
+    <End Type="CarpentryShopModel.InventoryMaterials" Role="InventoryMaterials" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="InventoryMaterials">
-        <PropertyRef Name="idInventoryMaterial" />
+      <Principal Role="InventoryCarpenter">
+        <PropertyRef Name="idInventory" />
       </Principal>
-      <Dependent Role="InventoryCarpenter">
-        <PropertyRef Name="idInventoryMaterials" />
+      <Dependent Role="InventoryMaterials">
+        <PropertyRef Name="idInventory" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_InventoryCarpenter_InventoryTools">
-    <End Type="CarpentryShopModel.InventoryTools" Role="InventoryTools" Multiplicity="0..1" />
-    <End Type="CarpentryShopModel.InventoryCarpenter" Role="InventoryCarpenter" Multiplicity="*" />
+  <Association Name="FK_InventoryMetalDetails_InventoryCarpenter">
+    <End Type="CarpentryShopModel.InventoryCarpenter" Role="InventoryCarpenter" Multiplicity="1" />
+    <End Type="CarpentryShopModel.InventoryMetalDetails" Role="InventoryMetalDetails" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="InventoryTools">
-        <PropertyRef Name="idInventoryTool" />
+      <Principal Role="InventoryCarpenter">
+        <PropertyRef Name="idInventory" />
       </Principal>
-      <Dependent Role="InventoryCarpenter">
-        <PropertyRef Name="idInventoryTool" />
+      <Dependent Role="InventoryMetalDetails">
+        <PropertyRef Name="idInventory" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_InventoryCarpenter_InventoryWoodDetails">
-    <End Type="CarpentryShopModel.InventoryWoodDetails" Role="InventoryWoodDetails" Multiplicity="0..1" />
-    <End Type="CarpentryShopModel.InventoryCarpenter" Role="InventoryCarpenter" Multiplicity="*" />
+  <Association Name="FK_InventoryTools_InventoryCarpenter">
+    <End Type="CarpentryShopModel.InventoryCarpenter" Role="InventoryCarpenter" Multiplicity="1" />
+    <End Type="CarpentryShopModel.InventoryTools" Role="InventoryTools" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="InventoryWoodDetails">
-        <PropertyRef Name="idInventoryWoodDetail" />
+      <Principal Role="InventoryCarpenter">
+        <PropertyRef Name="idInventory" />
       </Principal>
-      <Dependent Role="InventoryCarpenter">
-        <PropertyRef Name="idInventoryWoodDetails" />
+      <Dependent Role="InventoryTools">
+        <PropertyRef Name="idInventory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryWoodDetails_InventoryCarpenter">
+    <End Type="CarpentryShopModel.InventoryCarpenter" Role="InventoryCarpenter" Multiplicity="1" />
+    <End Type="CarpentryShopModel.InventoryWoodDetails" Role="InventoryWoodDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryCarpenter">
+        <PropertyRef Name="idInventory" />
+      </Principal>
+      <Dependent Role="InventoryWoodDetails">
+        <PropertyRef Name="idInventory" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

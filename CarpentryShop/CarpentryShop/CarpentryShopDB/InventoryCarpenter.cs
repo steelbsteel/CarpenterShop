@@ -14,17 +14,29 @@ namespace CarpentryShop.CarpentryShopDB
     
     public partial class InventoryCarpenter
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public InventoryCarpenter()
+        {
+            this.InventoryComponents = new HashSet<InventoryComponents>();
+            this.InventoryMaterials = new HashSet<InventoryMaterials>();
+            this.InventoryMetalDetails = new HashSet<InventoryMetalDetails>();
+            this.InventoryTools = new HashSet<InventoryTools>();
+            this.InventoryWoodDetails = new HashSet<InventoryWoodDetails>();
+        }
+    
         public int idInventory { get; set; }
         public int idCarpenter { get; set; }
-        public Nullable<int> idInventoryTool { get; set; }
-        public Nullable<int> idInventoryMetalDetails { get; set; }
-        public Nullable<int> idInventoryMaterials { get; set; }
-        public Nullable<int> idInventoryWoodDetails { get; set; }
     
         public virtual Carpenter Carpenter { get; set; }
-        public virtual InventoryMetalDetails InventoryMetalDetails { get; set; }
-        public virtual InventoryMaterials InventoryMaterials { get; set; }
-        public virtual InventoryTools InventoryTools { get; set; }
-        public virtual InventoryWoodDetails InventoryWoodDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InventoryComponents> InventoryComponents { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InventoryMaterials> InventoryMaterials { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InventoryMetalDetails> InventoryMetalDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InventoryTools> InventoryTools { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InventoryWoodDetails> InventoryWoodDetails { get; set; }
     }
 }

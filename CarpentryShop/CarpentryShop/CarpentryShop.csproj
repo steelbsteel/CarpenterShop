@@ -106,6 +106,9 @@
     <Compile Include="CarpentryShopDB\InventoryCarpenter.cs">
       <DependentUpon>CarpentryShopModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CarpentryShopDB\InventoryComponents.cs">
+      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CarpentryShopDB\InventoryMaterials.cs">
       <DependentUpon>CarpentryShopModel.tt</DependentUpon>
     </Compile>
