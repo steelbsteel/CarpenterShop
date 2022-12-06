@@ -1,0 +1,104 @@
+﻿<Window x:Class="CarpentryShop.Windows.CarpenterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarpentryShop.Windows"
+        mc:Ignorable="d"
+        
+        Title="CarpenterWindow" Height="720" Width="1240">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Image x:Name="CarpenterPhoto" Height="90" Width="90"></Image>
+
+        <StackPanel Grid.Row="1" Background="AliceBlue">
+            <TextBlock Text="Master:"></TextBlock>
+            <TextBlock x:Name="NameTextBlock"></TextBlock>
+            <TextBlock x:Name="SurnameTextBlock"></TextBlock>
+            <TextBlock></TextBlock>
+            <TextBlock Text="Stamina:"></TextBlock>
+            <TextBlock x:Name="StaminaTextBlock"></TextBlock>
+            <TextBlock></TextBlock>
+            <TextBlock Text="Balance"></TextBlock>
+            <TextBlock x:Name="BalanceTextBlock"></TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <TextBlock Text="Inventory" FontSize="48" FontWeight="Bold"></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Orientation="Horizontal">
+            <TextBlock Text="         Tools" FontSize="24"></TextBlock>
+            <TextBlock Text="                  Materials" FontSize="24"></TextBlock>
+            <TextBlock Text="          Wood details" FontSize="24"/>
+            <TextBlock Text="        Metal details" FontSize="24"/>
+            <TextBlock Text="         Components" FontSize="24"/>
+            <TextBlock ></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+            <ListView x:Name="ToolsList" Width="150" Margin="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Image Source="{Binding ImageTool}" Width="60" Height="60" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding NameTool}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView x:Name="MaterialsList" HorizontalAlignment="Left" Width="150" Margin="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Image Source="{Binding ImageMaterial}" Width="60" Height="60" HorizontalAlignment="Left"></Image>
+                            <TextBlock Text="{Binding NameMaterial}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView x:Name="WoodDetailsList" HorizontalAlignment="Left" Width="150" Margin="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Image Source="{Binding ImageMaterial}" Width="60" Height="60" HorizontalAlignment="Left"></Image>
+                            <TextBlock Text="{Binding NameMaterial}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView x:Name="MetalDetailsList" HorizontalAlignment="Left" Width="150" Margin="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Image Source="{Binding ImageMaterial}" Width="60" Height="60" HorizontalAlignment="Left"></Image>
+                            <TextBlock Text="{Binding NameMaterial}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView x:Name="ComponentsList" HorizontalAlignment="Left" Width="150" Margin="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Image Source="{Binding ImageMaterial}" Width="60" Height="60" HorizontalAlignment="Left"></Image>
+                            <TextBlock Text="{Binding NameMaterial}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left">
+            <Button Content="Add tool" Margin="20" Click="EventAddTool"></Button>
+            <Button Content="Add material" Margin="20" Click="EventAddMaterial"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
