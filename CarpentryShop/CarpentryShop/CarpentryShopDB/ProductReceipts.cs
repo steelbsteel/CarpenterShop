@@ -24,9 +24,7 @@ namespace CarpentryShop.CarpentryShopDB
     
         public int idProductReceipt { get; set; }
         public Nullable<int> idTool { get; set; }
-        public Nullable<int> idMachine { get; set; }
     
-        public virtual Machines Machines { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductReceiptDetails> ProductReceiptDetails { get; set; }
         public virtual Tools Tools { get; set; }

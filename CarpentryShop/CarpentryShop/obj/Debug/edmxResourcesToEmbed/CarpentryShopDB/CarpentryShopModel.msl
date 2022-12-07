@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище CarpentryShopModelContainer" CdmEntityContainer="CarpentryShopEntities">
+  <EntityContainerMapping StorageEntityContainer="CarpentryShopModelStoreContainer" CdmEntityContainer="CarpentryShopEntities">
     <EntitySetMapping Name="Machines">
-      <EntityTypeMapping TypeName="CarpentryShopModel.Machines">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.Machines)">
         <MappingFragment StoreEntitySet="Machines">
           <ScalarProperty Name="idMachine" ColumnName="idMachine" />
           <ScalarProperty Name="NameMachine" ColumnName="NameMachine" />
@@ -11,183 +11,183 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Carpenter">
-      <EntityTypeMapping TypeName="CarpentryShopModel.Carpenter">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.Carpenter)">
         <MappingFragment StoreEntitySet="Carpenter">
-          <ScalarProperty Name="BalanceCarpenter" ColumnName="BalanceCarpenter" />
-          <ScalarProperty Name="StaminaCarpenter" ColumnName="StaminaCarpenter" />
-          <ScalarProperty Name="ImageCarpenter" ColumnName="ImageCarpenter" />
-          <ScalarProperty Name="SurnameCarpenter" ColumnName="SurnameCarpenter" />
-          <ScalarProperty Name="NameCarpenter" ColumnName="NameCarpenter" />
           <ScalarProperty Name="idCarpenter" ColumnName="idCarpenter" />
+          <ScalarProperty Name="NameCarpenter" ColumnName="NameCarpenter" />
+          <ScalarProperty Name="SurnameCarpenter" ColumnName="SurnameCarpenter" />
+          <ScalarProperty Name="ImageCarpenter" ColumnName="ImageCarpenter" />
+          <ScalarProperty Name="StaminaCarpenter" ColumnName="StaminaCarpenter" />
+          <ScalarProperty Name="BalanceCarpenter" ColumnName="BalanceCarpenter" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ComponentReceipts">
-      <EntityTypeMapping TypeName="CarpentryShopModel.ComponentReceipts">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.ComponentReceipts)">
         <MappingFragment StoreEntitySet="ComponentReceipts">
-          <ScalarProperty Name="idMetalDetail" ColumnName="idMetalDetail" />
-          <ScalarProperty Name="idMachine" ColumnName="idMachine" />
-          <ScalarProperty Name="idTool" ColumnName="idTool" />
-          <ScalarProperty Name="idWoodDetail" ColumnName="idWoodDetail" />
           <ScalarProperty Name="idCompontentReceipt" ColumnName="idCompontentReceipt" />
+          <ScalarProperty Name="idWoodDetail" ColumnName="idWoodDetail" />
+          <ScalarProperty Name="idTool" ColumnName="idTool" />
+          <ScalarProperty Name="idMachine" ColumnName="idMachine" />
+          <ScalarProperty Name="idMetalDetail" ColumnName="idMetalDetail" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Components">
-      <EntityTypeMapping TypeName="CarpentryShopModel.Components">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.Components)">
         <MappingFragment StoreEntitySet="Components">
-          <ScalarProperty Name="Image" ColumnName="Image" />
-          <ScalarProperty Name="idComponentReceipt" ColumnName="idComponentReceipt" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="idComponent" ColumnName="idComponent" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="idComponentReceipt" ColumnName="idComponentReceipt" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DetailReceipts">
-      <EntityTypeMapping TypeName="CarpentryShopModel.DetailReceipts">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.DetailReceipts)">
         <MappingFragment StoreEntitySet="DetailReceipts">
-          <ScalarProperty Name="idMachine" ColumnName="idMachine" />
-          <ScalarProperty Name="idTool" ColumnName="idTool" />
-          <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
           <ScalarProperty Name="idDetailReceipt" ColumnName="idDetailReceipt" />
+          <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+          <ScalarProperty Name="idTool" ColumnName="idTool" />
+          <ScalarProperty Name="idMachine" ColumnName="idMachine" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="InventoryCarpenter">
-      <EntityTypeMapping TypeName="CarpentryShopModel.InventoryCarpenter">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.InventoryCarpenter)">
         <MappingFragment StoreEntitySet="InventoryCarpenter">
-          <ScalarProperty Name="idCarpenter" ColumnName="idCarpenter" />
           <ScalarProperty Name="idInventory" ColumnName="idInventory" />
+          <ScalarProperty Name="idCarpenter" ColumnName="idCarpenter" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="InventoryComponents">
-      <EntityTypeMapping TypeName="CarpentryShopModel.InventoryComponents">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.InventoryComponents)">
         <MappingFragment StoreEntitySet="InventoryComponents">
-          <ScalarProperty Name="idInventory" ColumnName="idInventory" />
-          <ScalarProperty Name="idComponent" ColumnName="idComponent" />
           <ScalarProperty Name="idInventoryComponent" ColumnName="idInventoryComponent" />
+          <ScalarProperty Name="idComponent" ColumnName="idComponent" />
+          <ScalarProperty Name="idInventory" ColumnName="idInventory" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="InventoryMaterials">
-      <EntityTypeMapping TypeName="CarpentryShopModel.InventoryMaterials">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.InventoryMaterials)">
         <MappingFragment StoreEntitySet="InventoryMaterials">
-          <ScalarProperty Name="idInventory" ColumnName="idInventory" />
-          <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
           <ScalarProperty Name="idInventoryMaterial" ColumnName="idInventoryMaterial" />
+          <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+          <ScalarProperty Name="idInventory" ColumnName="idInventory" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="InventoryMetalDetails">
-      <EntityTypeMapping TypeName="CarpentryShopModel.InventoryMetalDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.InventoryMetalDetails)">
         <MappingFragment StoreEntitySet="InventoryMetalDetails">
-          <ScalarProperty Name="idInventory" ColumnName="idInventory" />
-          <ScalarProperty Name="idMetalDetail" ColumnName="idMetalDetail" />
           <ScalarProperty Name="idInventoryMetalDetail" ColumnName="idInventoryMetalDetail" />
+          <ScalarProperty Name="idMetalDetail" ColumnName="idMetalDetail" />
+          <ScalarProperty Name="idInventory" ColumnName="idInventory" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="InventoryTools">
-      <EntityTypeMapping TypeName="CarpentryShopModel.InventoryTools">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.InventoryTools)">
         <MappingFragment StoreEntitySet="InventoryTools">
-          <ScalarProperty Name="idInventory" ColumnName="idInventory" />
-          <ScalarProperty Name="idTool" ColumnName="idTool" />
           <ScalarProperty Name="idInventoryTool" ColumnName="idInventoryTool" />
+          <ScalarProperty Name="idTool" ColumnName="idTool" />
+          <ScalarProperty Name="idInventory" ColumnName="idInventory" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="InventoryWoodDetails">
-      <EntityTypeMapping TypeName="CarpentryShopModel.InventoryWoodDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.InventoryWoodDetails)">
         <MappingFragment StoreEntitySet="InventoryWoodDetails">
-          <ScalarProperty Name="idInventory" ColumnName="idInventory" />
-          <ScalarProperty Name="idWoodDetail" ColumnName="idWoodDetail" />
           <ScalarProperty Name="idInventoryWoodDetail" ColumnName="idInventoryWoodDetail" />
+          <ScalarProperty Name="idWoodDetail" ColumnName="idWoodDetail" />
+          <ScalarProperty Name="idInventory" ColumnName="idInventory" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Materials">
-      <EntityTypeMapping TypeName="CarpentryShopModel.Materials">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.Materials)">
         <MappingFragment StoreEntitySet="Materials">
-          <ScalarProperty Name="NameMaterial" ColumnName="NameMaterial" />
-          <ScalarProperty Name="ImageMaterial" ColumnName="ImageMaterial" />
-          <ScalarProperty Name="idTypeMaterial" ColumnName="idTypeMaterial" />
           <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+          <ScalarProperty Name="idTypeMaterial" ColumnName="idTypeMaterial" />
+          <ScalarProperty Name="ImageMaterial" ColumnName="ImageMaterial" />
+          <ScalarProperty Name="NameMaterial" ColumnName="NameMaterial" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MetalDetails">
-      <EntityTypeMapping TypeName="CarpentryShopModel.MetalDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.MetalDetails)">
         <MappingFragment StoreEntitySet="MetalDetails">
-          <ScalarProperty Name="idDetailReceipt" ColumnName="idDetailReceipt" />
-          <ScalarProperty Name="ImageMetalDetail" ColumnName="ImageMetalDetail" />
-          <ScalarProperty Name="NameMetalDetail" ColumnName="NameMetalDetail" />
           <ScalarProperty Name="idMetalDetail" ColumnName="idMetalDetail" />
+          <ScalarProperty Name="NameMetalDetail" ColumnName="NameMetalDetail" />
+          <ScalarProperty Name="ImageMetalDetail" ColumnName="ImageMetalDetail" />
+          <ScalarProperty Name="idDetailReceipt" ColumnName="idDetailReceipt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProductReceiptDetails">
-      <EntityTypeMapping TypeName="CarpentryShopModel.ProductReceiptDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.ProductReceiptDetails)">
         <MappingFragment StoreEntitySet="ProductReceiptDetails">
-          <ScalarProperty Name="idProductReceipt" ColumnName="idProductReceipt" />
-          <ScalarProperty Name="idMetalDetail" ColumnName="idMetalDetail" />
-          <ScalarProperty Name="idWoodDetail" ColumnName="idWoodDetail" />
           <ScalarProperty Name="idProductReceiptDetail" ColumnName="idProductReceiptDetail" />
+          <ScalarProperty Name="idWoodDetail" ColumnName="idWoodDetail" />
+          <ScalarProperty Name="idMetalDetail" ColumnName="idMetalDetail" />
+          <ScalarProperty Name="idProductReceipt" ColumnName="idProductReceipt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProductReceipts">
-      <EntityTypeMapping TypeName="CarpentryShopModel.ProductReceipts">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.ProductReceipts)">
         <MappingFragment StoreEntitySet="ProductReceipts">
-          <ScalarProperty Name="idMachine" ColumnName="idMachine" />
-          <ScalarProperty Name="idTool" ColumnName="idTool" />
           <ScalarProperty Name="idProductReceipt" ColumnName="idProductReceipt" />
+          <ScalarProperty Name="idTool" ColumnName="idTool" />
+          <ScalarProperty Name="idMachine" ColumnName="idMachine" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProductReceiptsComponents">
-      <EntityTypeMapping TypeName="CarpentryShopModel.ProductReceiptsComponents">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.ProductReceiptsComponents)">
         <MappingFragment StoreEntitySet="ProductReceiptsComponents">
-          <ScalarProperty Name="idProductReceipt" ColumnName="idProductReceipt" />
-          <ScalarProperty Name="idComponent" ColumnName="idComponent" />
           <ScalarProperty Name="idProductReceiptComponents" ColumnName="idProductReceiptComponents" />
+          <ScalarProperty Name="idComponent" ColumnName="idComponent" />
+          <ScalarProperty Name="idProductReceipt" ColumnName="idProductReceipt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="CarpentryShopModel.Products">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.Products)">
         <MappingFragment StoreEntitySet="Products">
-          <ScalarProperty Name="idProductReceipt" ColumnName="idProductReceipt" />
-          <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
-          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
           <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
+          <ScalarProperty Name="idProductReceipt" ColumnName="idProductReceipt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Tools">
-      <EntityTypeMapping TypeName="CarpentryShopModel.Tools">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.Tools)">
         <MappingFragment StoreEntitySet="Tools">
-          <ScalarProperty Name="ImageTool" ColumnName="ImageTool" />
-          <ScalarProperty Name="NameTool" ColumnName="NameTool" />
           <ScalarProperty Name="idTool" ColumnName="idTool" />
+          <ScalarProperty Name="NameTool" ColumnName="NameTool" />
+          <ScalarProperty Name="ImageTool" ColumnName="ImageTool" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TypeMaterials">
-      <EntityTypeMapping TypeName="CarpentryShopModel.TypeMaterials">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.TypeMaterials)">
         <MappingFragment StoreEntitySet="TypeMaterials">
-          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="idTypeMaterial" ColumnName="idTypeMaterial" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="WoodDetails">
-      <EntityTypeMapping TypeName="CarpentryShopModel.WoodDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(CarpentryShopModel.WoodDetails)">
         <MappingFragment StoreEntitySet="WoodDetails">
-          <ScalarProperty Name="idDetailReceipt" ColumnName="idDetailReceipt" />
-          <ScalarProperty Name="ImageWoodDetail" ColumnName="ImageWoodDetail" />
-          <ScalarProperty Name="NameWoodDetail" ColumnName="NameWoodDetail" />
           <ScalarProperty Name="idWoodDetail" ColumnName="idWoodDetail" />
+          <ScalarProperty Name="NameWoodDetail" ColumnName="NameWoodDetail" />
+          <ScalarProperty Name="ImageWoodDetail" ColumnName="ImageWoodDetail" />
+          <ScalarProperty Name="idDetailReceipt" ColumnName="idDetailReceipt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

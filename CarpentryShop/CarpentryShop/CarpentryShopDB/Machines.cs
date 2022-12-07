@@ -18,7 +18,6 @@ namespace CarpentryShop.CarpentryShopDB
         public Machines()
         {
             this.DetailReceipts = new HashSet<DetailReceipts>();
-            this.ProductReceipts = new HashSet<ProductReceipts>();
         }
     
         public int idMachine { get; set; }
@@ -27,7 +26,5 @@ namespace CarpentryShop.CarpentryShopDB
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetailReceipts> DetailReceipts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductReceipts> ProductReceipts { get; set; }
     }
 }

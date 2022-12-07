@@ -14,6 +14,6 @@ namespace CarpentryShop
     /// </summary>
     public partial class App : Application
     {
-        public static CarpentryShopEntities Connection = new CarpentryShopEntities();
+        public static CarpentryShopEntities2 Connection = new CarpentryShopEntities2();
     }
 }

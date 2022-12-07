@@ -4,27 +4,29 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9848019cc8b64b3e86ca4256055c1165" Name="Diagram1" ZoomLevel="69">
-        <EntityTypeShape EntityType="CarpentryShopModel.Machines" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CarpentryShopModel.Carpenter" Width="1.5" PointX="3.375" PointY="7.875" />
-        <EntityTypeShape EntityType="CarpentryShopModel.ComponentReceipts" Width="1.5" PointX="10.875" PointY="1.75" />
-        <EntityTypeShape EntityType="CarpentryShopModel.Components" Width="1.5" PointX="13.125" PointY="6" />
-        <EntityTypeShape EntityType="CarpentryShopModel.DetailReceipts" Width="1.5" PointX="3.375" PointY="12.75" />
-        <EntityTypeShape EntityType="CarpentryShopModel.InventoryCarpenter" Width="1.5" PointX="5.625" PointY="7.75" />
-        <EntityTypeShape EntityType="CarpentryShopModel.InventoryComponents" Width="1.5" PointX="7.875" PointY="19" />
-        <EntityTypeShape EntityType="CarpentryShopModel.InventoryMaterials" Width="1.5" PointX="7.875" PointY="8" />
-        <EntityTypeShape EntityType="CarpentryShopModel.InventoryMetalDetails" Width="1.5" PointX="7.875" PointY="5" />
-        <EntityTypeShape EntityType="CarpentryShopModel.InventoryTools" Width="1.5" PointX="7.875" PointY="11" />
-        <EntityTypeShape EntityType="CarpentryShopModel.InventoryWoodDetails" Width="1.5" PointX="10.875" PointY="8" />
-        <EntityTypeShape EntityType="CarpentryShopModel.Materials" Width="1.5" PointX="1.125" PointY="11.5" />
-        <EntityTypeShape EntityType="CarpentryShopModel.MetalDetails" Width="1.5" PointX="5.625" PointY="2.75" />
-        <EntityTypeShape EntityType="CarpentryShopModel.ProductReceiptDetails" Width="1.5" PointX="13.875" PointY="1.875" />
-        <EntityTypeShape EntityType="CarpentryShopModel.ProductReceipts" Width="1.5" PointX="6.375" PointY="14.5" />
-        <EntityTypeShape EntityType="CarpentryShopModel.ProductReceiptsComponents" Width="1.5" PointX="15.375" PointY="10.5" />
-        <EntityTypeShape EntityType="CarpentryShopModel.Products" Width="1.5" PointX="8.625" PointY="14.75" />
-        <EntityTypeShape EntityType="CarpentryShopModel.Tools" Width="1.5" PointX="1.125" PointY="17.625" />
-        <EntityTypeShape EntityType="CarpentryShopModel.TypeMaterials" Width="1.5" PointX="1.125" PointY="14.875" />
-        <EntityTypeShape EntityType="CarpentryShopModel.WoodDetails" Width="1.5" PointX="8.625" PointY="0.75" />
+      <Diagram DiagramId="ad68f13852354f06b9c4426418a75e98" Name="Diagram1" ZoomLevel="52">
+        <EntityTypeShape EntityType="CarpentryShopModel.Storage" Width="1.5" PointX="5.25" PointY="21" />
+        <EntityTypeShape EntityType="CarpentryShopModel.Carpenter" Width="1.5" PointX="0.75" PointY="6.625" />
+        <EntityTypeShape EntityType="CarpentryShopModel.ComponentReceipts" Width="1.5" PointX="11.25" PointY="6.5" />
+        <EntityTypeShape EntityType="CarpentryShopModel.Components" Width="1.5" PointX="13.5" PointY="4.75" />
+        <EntityTypeShape EntityType="CarpentryShopModel.DetailReceipts" Width="1.5" PointX="0.75" PointY="11.375" />
+        <EntityTypeShape EntityType="CarpentryShopModel.InventoryCarpenter" Width="1.5" PointX="3" PointY="6.5" />
+        <EntityTypeShape EntityType="CarpentryShopModel.InventoryComponents" Width="1.5" PointX="5.25" PointY="12.375" />
+        <EntityTypeShape EntityType="CarpentryShopModel.InventoryMaterials" Width="1.5" PointX="5.25" PointY="6.875" />
+        <EntityTypeShape EntityType="CarpentryShopModel.InventoryMetalDetails" Width="1.5" PointX="8.25" PointY="6.875" />
+        <EntityTypeShape EntityType="CarpentryShopModel.InventoryTools" Width="1.5" PointX="8.25" PointY="3.875" />
+        <EntityTypeShape EntityType="CarpentryShopModel.InventoryWoodDetails" Width="1.5" PointX="5.25" PointY="3.875" />
+        <EntityTypeShape EntityType="CarpentryShopModel.Machines" Width="1.5" PointX="1.5" PointY="21.5" />
+        <EntityTypeShape EntityType="CarpentryShopModel.Materials" Width="1.5" PointX="1.5" PointY="15.375" />
+        <EntityTypeShape EntityType="CarpentryShopModel.MetalDetails" Width="1.5" PointX="6" PointY="15.5" />
+        <EntityTypeShape EntityType="CarpentryShopModel.ProductReceiptDetails" Width="1.5" PointX="13.5" PointY="8.625" />
+        <EntityTypeShape EntityType="CarpentryShopModel.ProductReceipts" Width="1.5" PointX="8.25" PointY="10.375" />
+        <EntityTypeShape EntityType="CarpentryShopModel.ProductReceiptsComponents" Width="1.5" PointX="15.75" PointY="7.625" />
+        <EntityTypeShape EntityType="CarpentryShopModel.Products" Width="1.5" PointX="10.5" PointY="10.375" />
+        <EntityTypeShape EntityType="CarpentryShopModel.StorageProduct" Width="1.5" PointX="12.75" PointY="15.5" />
+        <EntityTypeShape EntityType="CarpentryShopModel.Tools" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="CarpentryShopModel.TypeMaterials" Width="1.5" PointX="1.5" PointY="18.75" />
+        <EntityTypeShape EntityType="CarpentryShopModel.WoodDetails" Width="1.5" PointX="3" PointY="1.5" />
         <AssociationConnector Association="CarpentryShopModel.FK_InventoryCarpenter_Carpenter" />
         <AssociationConnector Association="CarpentryShopModel.FK_ComponentReceipts_MetalDetails" />
         <AssociationConnector Association="CarpentryShopModel.FK_ComponentReceipts_WoodDetails" />
@@ -44,7 +46,6 @@
         <AssociationConnector Association="CarpentryShopModel.FK_InventoryDetails_Details" />
         <AssociationConnector Association="CarpentryShopModel.FK_InventoryTools_Tools" />
         <AssociationConnector Association="CarpentryShopModel.FK_InventoryWoodDetails_WoodDetails" />
-        <AssociationConnector Association="CarpentryShopModel.FK_ProductReceipts_Machines" />
         <AssociationConnector Association="CarpentryShopModel.FK_Materials_TypeMaterials" />
         <AssociationConnector Association="CarpentryShopModel.FK_ProductReceiptDetails_MetalDetails" />
         <AssociationConnector Association="CarpentryShopModel.FK_ProductReceiptDetails_ProductReceipts" />
@@ -52,6 +53,8 @@
         <AssociationConnector Association="CarpentryShopModel.FK_ProductReceipts_Tools" />
         <AssociationConnector Association="CarpentryShopModel.FK_ProductReceiptsComponents_ProductReceipts" />
         <AssociationConnector Association="CarpentryShopModel.FK_Products_ProductReceipts" />
+        <AssociationConnector Association="CarpentryShopModel.FK_StorageProduct_Products" />
+        <AssociationConnector Association="CarpentryShopModel.FK_StorageProduct_Storage" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

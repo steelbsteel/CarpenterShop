@@ -13,10 +13,10 @@ namespace CarpentryShop.CarpentryShopDB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CarpentryShopEntities : DbContext
+    public partial class CarpentryShopEntities2 : DbContext
     {
-        public CarpentryShopEntities()
-            : base("name=CarpentryShopEntities")
+        public CarpentryShopEntities2()
+            : base("name=CarpentryShopEntities2")
         {
         }
     
@@ -25,7 +25,7 @@ namespace CarpentryShop.CarpentryShopDB
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Machines> Machines { get; set; }
+        public virtual DbSet<Storage> Storage { get; set; }
         public virtual DbSet<Carpenter> Carpenter { get; set; }
         public virtual DbSet<ComponentReceipts> ComponentReceipts { get; set; }
         public virtual DbSet<Components> Components { get; set; }
@@ -36,12 +36,14 @@ namespace CarpentryShop.CarpentryShopDB
         public virtual DbSet<InventoryMetalDetails> InventoryMetalDetails { get; set; }
         public virtual DbSet<InventoryTools> InventoryTools { get; set; }
         public virtual DbSet<InventoryWoodDetails> InventoryWoodDetails { get; set; }
+        public virtual DbSet<Machines> Machines { get; set; }
         public virtual DbSet<Materials> Materials { get; set; }
         public virtual DbSet<MetalDetails> MetalDetails { get; set; }
         public virtual DbSet<ProductReceiptDetails> ProductReceiptDetails { get; set; }
         public virtual DbSet<ProductReceipts> ProductReceipts { get; set; }
         public virtual DbSet<ProductReceiptsComponents> ProductReceiptsComponents { get; set; }
         public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<StorageProduct> StorageProduct { get; set; }
         public virtual DbSet<Tools> Tools { get; set; }
         public virtual DbSet<TypeMaterials> TypeMaterials { get; set; }
         public virtual DbSet<WoodDetails> WoodDetails { get; set; }

@@ -32,7 +32,7 @@ namespace CarpentryShop
         private void EventEnterButton(object sender, RoutedEventArgs e)
         {
             MediaPlayer mp3player = new MediaPlayer();
-            mp3player.Open(new Uri("C:/Users/202001/source/repos/CarpentryShop/CarpentryShop/MP3/Resonance.mp3", UriKind.Relative));
+            mp3player.Open(new Uri("C:/Users/user/source/repos/CarpentryShop/CarpentryShop/CarpentryShop/MP3/Resonance.mp3", UriKind.Relative));
             //mp3player.Play();
             var window = new CarpenterWindow();
             window.Show();

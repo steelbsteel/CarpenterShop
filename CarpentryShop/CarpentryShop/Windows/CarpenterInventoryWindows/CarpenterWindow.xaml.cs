@@ -1,4 +1,6 @@
 ﻿using CarpentryShop.CarpentryShopDB;
+using CarpentryShop.Windows.MachinesWindow;
+using CarpentryShop.Windows.ReceiptsWindows;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -22,7 +24,6 @@ namespace CarpentryShop.Windows
     /// </summary>
     public partial class CarpenterWindow : Window
     {
-        List<Carpenter> carpenterInfo = App.Connection.Carpenter.Where(x => x.idCarpenter == 1).ToList();
         Carpenter carpenter = App.Connection.Carpenter.First();
         public byte[] Image { get; set; }
         public CarpenterWindow()
@@ -32,7 +33,6 @@ namespace CarpentryShop.Windows
             CarpenterPhoto.Source = ByteToImage(carpenter.ImageCarpenter);
             NameTextBlock.Text = carpenter.NameCarpenter;
             SurnameTextBlock.Text = carpenter.SurnameCarpenter;
-            StaminaTextBlock.Text = carpenter.StaminaCarpenter.ToString();
             BalanceTextBlock.Text = carpenter.BalanceCarpenter.ToString();
 
             List<Tools> tools = new List<Tools>();
@@ -107,20 +107,6 @@ namespace CarpentryShop.Windows
                 }
             }
         }
-
-        public static ImageSource ByteToImage(byte[] imageData)
-        {
-            BitmapImage biImg = new BitmapImage();
-            MemoryStream ms = new MemoryStream(imageData);
-            biImg.BeginInit();
-            biImg.StreamSource = ms;
-            biImg.EndInit();
-
-            ImageSource imgSrc = biImg as ImageSource;
-
-            return imgSrc;
-        }
-
         private void EventAddTool(object sender, RoutedEventArgs e)
         {
             var toolsWindow = new ToolsWindow();
@@ -135,14 +121,43 @@ namespace CarpentryShop.Windows
             this.Close();
         }
 
-        private void EventAddWoodDetail(object sender, RoutedEventArgs e)
+        public static ImageSource ByteToImage(byte[] imageData)
         {
+            BitmapImage biImg = new BitmapImage();
+            MemoryStream ms = new MemoryStream(imageData);
+            biImg.BeginInit();
+            biImg.StreamSource = ms;
+            biImg.EndInit();
 
+            ImageSource imgSrc = biImg as ImageSource;
+
+            return imgSrc;
         }
 
-        private void EventAddMetalDetail(object sender, RoutedEventArgs e)
+        private void EventViewDetailsReceipts(object sender, RoutedEventArgs e)
         {
+            var detailReceiptsWindow = new DetailsReceiptsWIndow();
+            detailReceiptsWindow.Show();
+        }
 
+        private void EventViewComponentsReceipts(object sender, RoutedEventArgs e)
+        {
+            var componentsReceiptsWindow = new ComponentsReceipts();
+            componentsReceiptsWindow.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var samStalWindow = new SamStalWindow();
+            samStalWindow.Show();
+            this.Close();
+        }
+
+        private void EventRefresh(object sender, RoutedEventArgs e)
+        {
+            var window = new CarpenterWindow();
+            window.Show();
+            this.Close();
         }
     }
 }

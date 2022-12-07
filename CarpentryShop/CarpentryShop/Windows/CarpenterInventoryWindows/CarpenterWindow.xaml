@@ -18,17 +18,14 @@
             <RowDefinition Height="5*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <Image x:Name="CarpenterPhoto" Height="90" Width="90"></Image>
 
         <StackPanel Grid.Row="1" Background="AliceBlue">
             <TextBlock Text="Master:"></TextBlock>
             <TextBlock x:Name="NameTextBlock"></TextBlock>
             <TextBlock x:Name="SurnameTextBlock"></TextBlock>
-            <TextBlock></TextBlock>
-            <TextBlock Text="Stamina:"></TextBlock>
-            <TextBlock x:Name="StaminaTextBlock"></TextBlock>
-            <TextBlock></TextBlock>
+            <Separator></Separator>
             <TextBlock Text="Balance"></TextBlock>
             <TextBlock x:Name="BalanceTextBlock"></TextBlock>
         </StackPanel>
@@ -69,8 +66,8 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <Image Source="{Binding ImageMaterial}" Width="60" Height="60" HorizontalAlignment="Left"></Image>
-                            <TextBlock Text="{Binding NameMaterial}"></TextBlock>
+                            <Image Source="{Binding ImageWoodDetail}" Width="60" Height="60" HorizontalAlignment="Left"></Image>
+                            <TextBlock Text="{Binding NameWoodDetao;}"></TextBlock>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -79,8 +76,8 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <Image Source="{Binding ImageMaterial}" Width="60" Height="60" HorizontalAlignment="Left"></Image>
-                            <TextBlock Text="{Binding NameMaterial}"></TextBlock>
+                            <Image Source="{Binding ImageMetalDetail}" Width="60" Height="60" HorizontalAlignment="Left"></Image>
+                            <TextBlock Text="{Binding NameMetalDetail}"></TextBlock>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -89,16 +86,24 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <Image Source="{Binding ImageMaterial}" Width="60" Height="60" HorizontalAlignment="Left"></Image>
-                            <TextBlock Text="{Binding NameMaterial}"></TextBlock>
+                            <Image Source="{Binding ImageComponent}" Width="60" Height="60" HorizontalAlignment="Left"></Image>
+                            <TextBlock Text="{Binding NameComponent}"></TextBlock>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left">
-            <Button Content="Add tool" Margin="20" Click="EventAddTool"></Button>
-            <Button Content="Add material" Margin="20" Click="EventAddMaterial"></Button>
+            <Button Content="Add tool" Margin="5" Click="EventAddTool"></Button>
+            <Button Content="Add material" Margin="5" Click="EventAddMaterial"></Button>
+            <Button Content="Details receipts" Margin="5" Click="EventViewDetailsReceipts"></Button>
+            <Button Content="Components receipts" Margin="5" Click="EventViewComponentsReceipts"></Button>
+            <Separator Height="10"></Separator>
+            <TextBlock Text="Machines" HorizontalAlignment="Center"></TextBlock>
+            <Separator Height="10"></Separator>
+            <Button Content="SamStal" Margin="5" Click="Button_Click"></Button>
         </StackPanel>
+
+        <Button Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content ="Refresh" Grid.ColumnSpan="2" Height="39" Margin="177,0,0,0" Width="168" Click="EventRefresh"/>
     </Grid>
 </Window>

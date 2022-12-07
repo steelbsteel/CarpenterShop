@@ -64,17 +64,122 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CarpentryShopDB\Carpenter.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\CarpentryShop.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarpentryShop.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\CarpentryShop.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\CarpentryShop.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarpentryShop.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\ComponentReceipts.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\Components.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\DetailReceipts.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\InventoryCarpenter.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\InventoryComponents.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\InventoryMaterials.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\InventoryMetalDetails.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\InventoryTools.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\InventoryWoodDetails.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\Machines.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\Materials.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\MetalDetails.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\ProductReceiptDetails.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\ProductReceipts.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\ProductReceiptsComponents.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\Products.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\Storage.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\StorageProduct.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\Tools.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\TypeMaterials.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarpentryShopDB\WoodDetails.cs">
+      <DependentUpon>CarpentryShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Receipt.cs" />
     <Compile Include="Windows\CarpenterInventoryWindows\MaterialsWindow.xaml.cs">
       <DependentUpon>MaterialsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\CarpenterInventoryWindows\ToolsWindow.xaml.cs">
       <DependentUpon>ToolsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\MachinesWindow\PossibleDetailsChoose.xaml.cs">
+      <DependentUpon>PossibleDetailsChoose.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MachinesWindow\SamStalWindow.xaml.cs">
+      <DependentUpon>SamStalWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ReceiptsWindows\ComponentsReceipts.xaml.cs">
+      <DependentUpon>ComponentsReceipts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ReceiptsWindows\DetailsReceiptsWindow.xaml.cs">
+      <DependentUpon>DetailsReceiptsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ReceiptsWindows\ProductsReceipts.xaml.cs">
+      <DependentUpon>ProductsReceipts.xaml</DependentUpon>
+    </Compile>
     <Page Include="Windows\CarpenterInventoryWindows\CarpenterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\CarpenterInventoryWindows\MaterialsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MachinesWindow\PossibleDetailsChoose.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MachinesWindow\SamStalWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -86,81 +191,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CarpentryShopDB\Carpenter.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\CarpentryShopModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarpentryShopModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\CarpentryShopModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\CarpentryShopModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarpentryShopModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\ComponentReceipts.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\Components.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\DetailReceipts.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\InventoryCarpenter.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\InventoryComponents.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\InventoryMaterials.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\InventoryMetalDetails.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\InventoryTools.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\InventoryWoodDetails.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\Machines.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\Materials.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\MetalDetails.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\ProductReceiptDetails.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\ProductReceipts.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\ProductReceiptsComponents.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\Products.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\Tools.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\TypeMaterials.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CarpentryShopDB\WoodDetails.cs">
-      <DependentUpon>CarpentryShopModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Windows\CarpenterInventoryWindows\CarpenterWindow.xaml.cs">
       <DependentUpon>CarpenterWindow.xaml</DependentUpon>
     </Compile>
@@ -169,6 +199,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\CarpenterInventoryWindows\ToolsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ReceiptsWindows\ComponentsReceipts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ReceiptsWindows\DetailsReceiptsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ReceiptsWindows\ProductsReceipts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,12 +233,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="CarpentryShopDB\CarpentryShopModel.edmx">
+    <EntityDeploy Include="CarpentryShopDB\CarpentryShop.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CarpentryShopModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>CarpentryShop.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="CarpentryShopDB\CarpentryShopModel.edmx.diagram">
-      <DependentUpon>CarpentryShopModel.edmx</DependentUpon>
+    <None Include="CarpentryShopDB\CarpentryShop.edmx.diagram">
+      <DependentUpon>CarpentryShop.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -208,15 +250,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CarpentryShopDB\CarpentryShopModel.Context.tt">
+    <Content Include="CarpentryShopDB\CarpentryShop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CarpentryShopModel.Context.cs</LastGenOutput>
-      <DependentUpon>CarpentryShopModel.edmx</DependentUpon>
+      <DependentUpon>CarpentryShop.edmx</DependentUpon>
+      <LastGenOutput>CarpentryShop.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="CarpentryShopDB\CarpentryShopModel.tt">
+    <Content Include="CarpentryShopDB\CarpentryShop.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarpentryShopModel.edmx</DependentUpon>
-      <LastGenOutput>CarpentryShopModel.cs</LastGenOutput>
+      <DependentUpon>CarpentryShop.edmx</DependentUpon>
+      <LastGenOutput>CarpentryShop.cs</LastGenOutput>
     </Content>
     <Content Include="MP3\Resonance.mp3" />
     <Resource Include="Images\ComponentsImages\Ведро.jpg" />
@@ -268,8 +310,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Windows\MachinesWindow\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

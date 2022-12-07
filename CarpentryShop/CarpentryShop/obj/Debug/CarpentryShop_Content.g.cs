@@ -8,8 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("carpentryshopdb/carpentryshopmodel.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("carpentryshopdb/carpentryshopmodel.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("carpentryshopdb/carpentryshop.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("carpentryshopdb/carpentryshop.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mp3/resonance.mp3")]
 
 

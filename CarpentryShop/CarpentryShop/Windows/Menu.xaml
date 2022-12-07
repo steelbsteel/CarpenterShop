@@ -8,7 +8,7 @@
         Title="MainWindow" Height="720" Width="1024">
     <Grid x:Name="MainWindowGrid">
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\202001\source\repos\CarpentryShop\CarpentryShop\CarpentryShop\Images\MainWindowImage\CarpentryEnter.jpg"/>
+            <ImageBrush ImageSource="C:\Users\user\Source\Repos\CarpentryShop\CarpentryShop\CarpentryShop\Images\MainWindowImage\CarpentryEnter.jpg"/>
         </Grid.Background>
 
         <Grid.ColumnDefinitions>

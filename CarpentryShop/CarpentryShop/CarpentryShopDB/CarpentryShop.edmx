@@ -132,7 +132,6 @@
           </Key>
           <Property Name="idProductReceipt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idTool" Type="int" />
-          <Property Name="idMachine" Type="int" />
         </EntityType>
         <EntityType Name="ProductReceiptsComponents">
           <Key>
@@ -150,6 +149,21 @@
           <Property Name="NameProduct" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ImageProduct" Type="image" />
           <Property Name="idProductReceipt" Type="int" />
+        </EntityType>
+        <EntityType Name="Storage">
+          <Key>
+            <PropertyRef Name="idStorage" />
+          </Key>
+          <Property Name="idStorage" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StorageProduct">
+          <Key>
+            <PropertyRef Name="idStorageProduct" />
+          </Key>
+          <Property Name="idStorageProduct" Type="int" Nullable="false" />
+          <Property Name="idProduct" Type="int" Nullable="false" />
+          <Property Name="idStorage" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Tools">
           <Key>
@@ -427,18 +441,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductReceipts_Machines">
-          <End Role="Machines" Type="Self.Machines" Multiplicity="0..1" />
-          <End Role="ProductReceipts" Type="Self.ProductReceipts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Machines">
-              <PropertyRef Name="idMachine" />
-            </Principal>
-            <Dependent Role="ProductReceipts">
-              <PropertyRef Name="idMachine" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ProductReceipts_Tools">
           <End Role="Tools" Type="Self.Tools" Multiplicity="0..1" />
           <End Role="ProductReceipts" Type="Self.ProductReceipts" Multiplicity="*" />
@@ -487,6 +489,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_StorageProduct_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="StorageProduct" Type="Self.StorageProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="idProduct" />
+            </Principal>
+            <Dependent Role="StorageProduct">
+              <PropertyRef Name="idProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StorageProduct_Storage">
+          <End Role="Storage" Type="Self.Storage" Multiplicity="1" />
+          <End Role="StorageProduct" Type="Self.StorageProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Storage">
+              <PropertyRef Name="idStorage" />
+            </Principal>
+            <Dependent Role="StorageProduct">
+              <PropertyRef Name="idStorage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_WoodDetails_DetailReceipts">
           <End Role="DetailReceipts" Type="Self.DetailReceipts" Multiplicity="0..1" />
           <End Role="WoodDetails" Type="Self.WoodDetails" Multiplicity="*" />
@@ -517,6 +543,8 @@
           <EntitySet Name="ProductReceipts" EntityType="Self.ProductReceipts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductReceiptsComponents" EntityType="Self.ProductReceiptsComponents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Storage" EntityType="Self.Storage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StorageProduct" EntityType="Self.StorageProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tools" EntityType="Self.Tools" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeMaterials" EntityType="Self.TypeMaterials" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WoodDetails" EntityType="Self.WoodDetails" Schema="dbo" store:Type="Tables" />
@@ -604,10 +632,6 @@
             <End Role="WoodDetails" EntitySet="WoodDetails" />
             <End Role="ProductReceiptDetails" EntitySet="ProductReceiptDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductReceipts_Machines" Association="Self.FK_ProductReceipts_Machines">
-            <End Role="Machines" EntitySet="Machines" />
-            <End Role="ProductReceipts" EntitySet="ProductReceipts" />
-          </AssociationSet>
           <AssociationSet Name="FK_ProductReceipts_Tools" Association="Self.FK_ProductReceipts_Tools">
             <End Role="Tools" EntitySet="Tools" />
             <End Role="ProductReceipts" EntitySet="ProductReceipts" />
@@ -624,6 +648,14 @@
             <End Role="ProductReceipts" EntitySet="ProductReceipts" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
+          <AssociationSet Name="FK_StorageProduct_Products" Association="Self.FK_StorageProduct_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="StorageProduct" EntitySet="StorageProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StorageProduct_Storage" Association="Self.FK_StorageProduct_Storage">
+            <End Role="Storage" EntitySet="Storage" />
+            <End Role="StorageProduct" EntitySet="StorageProduct" />
+          </AssociationSet>
           <AssociationSet Name="FK_WoodDetails_DetailReceipts" Association="Self.FK_WoodDetails_DetailReceipts">
             <End Role="DetailReceipts" EntitySet="DetailReceipts" />
             <End Role="WoodDetails" EntitySet="WoodDetails" />
@@ -633,18 +665,8 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CarpentryShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Machines">
-          <Key>
-            <PropertyRef Name="idMachine" />
-          </Key>
-          <Property Name="idMachine" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameMachine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ImageMachine" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="DetailReceipts" Relationship="CarpentryShopModel.FK_DetailReceipts_Machines" FromRole="Machines" ToRole="DetailReceipts" />
-          <NavigationProperty Name="ProductReceipts" Relationship="CarpentryShopModel.FK_ProductReceipts_Machines" FromRole="Machines" ToRole="ProductReceipts" />
-        </EntityType>
-        <EntityContainer Name="CarpentryShopEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Machines" EntityType="Self.Machines" />
+        <EntityContainer Name="CarpentryShopEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Storage" EntityType="CarpentryShopModel.Storage" />
           <EntitySet Name="Carpenter" EntityType="CarpentryShopModel.Carpenter" />
           <EntitySet Name="ComponentReceipts" EntityType="CarpentryShopModel.ComponentReceipts" />
           <EntitySet Name="Components" EntityType="CarpentryShopModel.Components" />
@@ -655,12 +677,14 @@
           <EntitySet Name="InventoryMetalDetails" EntityType="CarpentryShopModel.InventoryMetalDetails" />
           <EntitySet Name="InventoryTools" EntityType="CarpentryShopModel.InventoryTools" />
           <EntitySet Name="InventoryWoodDetails" EntityType="CarpentryShopModel.InventoryWoodDetails" />
+          <EntitySet Name="Machines" EntityType="CarpentryShopModel.Machines" />
           <EntitySet Name="Materials" EntityType="CarpentryShopModel.Materials" />
           <EntitySet Name="MetalDetails" EntityType="CarpentryShopModel.MetalDetails" />
           <EntitySet Name="ProductReceiptDetails" EntityType="CarpentryShopModel.ProductReceiptDetails" />
           <EntitySet Name="ProductReceipts" EntityType="CarpentryShopModel.ProductReceipts" />
           <EntitySet Name="ProductReceiptsComponents" EntityType="CarpentryShopModel.ProductReceiptsComponents" />
           <EntitySet Name="Products" EntityType="CarpentryShopModel.Products" />
+          <EntitySet Name="StorageProduct" EntityType="CarpentryShopModel.StorageProduct" />
           <EntitySet Name="Tools" EntityType="CarpentryShopModel.Tools" />
           <EntitySet Name="TypeMaterials" EntityType="CarpentryShopModel.TypeMaterials" />
           <EntitySet Name="WoodDetails" EntityType="CarpentryShopModel.WoodDetails" />
@@ -740,10 +764,6 @@
             <End Role="WoodDetails" EntitySet="WoodDetails" />
             <End Role="InventoryWoodDetails" EntitySet="InventoryWoodDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductReceipts_Machines" Association="CarpentryShopModel.FK_ProductReceipts_Machines">
-            <End Role="Machines" EntitySet="Machines" />
-            <End Role="ProductReceipts" EntitySet="ProductReceipts" />
-          </AssociationSet>
           <AssociationSet Name="FK_Materials_TypeMaterials" Association="CarpentryShopModel.FK_Materials_TypeMaterials">
             <End Role="TypeMaterials" EntitySet="TypeMaterials" />
             <End Role="Materials" EntitySet="Materials" />
@@ -772,7 +792,23 @@
             <End Role="ProductReceipts" EntitySet="ProductReceipts" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
+          <AssociationSet Name="FK_StorageProduct_Products" Association="CarpentryShopModel.FK_StorageProduct_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="StorageProduct" EntitySet="StorageProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StorageProduct_Storage" Association="CarpentryShopModel.FK_StorageProduct_Storage">
+            <End Role="Storage" EntitySet="Storage" />
+            <End Role="StorageProduct" EntitySet="StorageProduct" />
+          </AssociationSet>
           </EntityContainer>
+        <EntityType Name="Storage">
+          <Key>
+            <PropertyRef Name="idStorage" />
+          </Key>
+          <Property Name="idStorage" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="StorageProduct" Relationship="CarpentryShopModel.FK_StorageProduct_Storage" FromRole="Storage" ToRole="StorageProduct" />
+        </EntityType>
         <EntityType Name="Carpenter">
           <Key>
             <PropertyRef Name="idCarpenter" />
@@ -885,6 +921,15 @@
           <NavigationProperty Name="InventoryCarpenter" Relationship="CarpentryShopModel.FK_InventoryWoodDetails_InventoryCarpenter" FromRole="InventoryWoodDetails" ToRole="InventoryCarpenter" />
           <NavigationProperty Name="WoodDetails" Relationship="CarpentryShopModel.FK_InventoryWoodDetails_WoodDetails" FromRole="InventoryWoodDetails" ToRole="WoodDetails" />
         </EntityType>
+        <EntityType Name="Machines">
+          <Key>
+            <PropertyRef Name="idMachine" />
+          </Key>
+          <Property Name="idMachine" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameMachine" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImageMachine" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="DetailReceipts" Relationship="CarpentryShopModel.FK_DetailReceipts_Machines" FromRole="Machines" ToRole="DetailReceipts" />
+        </EntityType>
         <EntityType Name="Materials">
           <Key>
             <PropertyRef Name="idMaterial" />
@@ -928,8 +973,6 @@
           </Key>
           <Property Name="idProductReceipt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idTool" Type="Int32" />
-          <Property Name="idMachine" Type="Int32" />
-          <NavigationProperty Name="Machines" Relationship="CarpentryShopModel.FK_ProductReceipts_Machines" FromRole="ProductReceipts" ToRole="Machines" />
           <NavigationProperty Name="ProductReceiptDetails" Relationship="CarpentryShopModel.FK_ProductReceiptDetails_ProductReceipts" FromRole="ProductReceipts" ToRole="ProductReceiptDetails" />
           <NavigationProperty Name="Tools" Relationship="CarpentryShopModel.FK_ProductReceipts_Tools" FromRole="ProductReceipts" ToRole="Tools" />
           <NavigationProperty Name="ProductReceiptsComponents" Relationship="CarpentryShopModel.FK_ProductReceiptsComponents_ProductReceipts" FromRole="ProductReceipts" ToRole="ProductReceiptsComponents" />
@@ -954,6 +997,17 @@
           <Property Name="ImageProduct" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="idProductReceipt" Type="Int32" />
           <NavigationProperty Name="ProductReceipts" Relationship="CarpentryShopModel.FK_Products_ProductReceipts" FromRole="Products" ToRole="ProductReceipts" />
+          <NavigationProperty Name="StorageProduct" Relationship="CarpentryShopModel.FK_StorageProduct_Products" FromRole="Products" ToRole="StorageProduct" />
+        </EntityType>
+        <EntityType Name="StorageProduct">
+          <Key>
+            <PropertyRef Name="idStorageProduct" />
+          </Key>
+          <Property Name="idStorageProduct" Type="Int32" Nullable="false" />
+          <Property Name="idProduct" Type="Int32" Nullable="false" />
+          <Property Name="idStorage" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="CarpentryShopModel.FK_StorageProduct_Products" FromRole="StorageProduct" ToRole="Products" />
+          <NavigationProperty Name="Storage" Relationship="CarpentryShopModel.FK_StorageProduct_Storage" FromRole="StorageProduct" ToRole="Storage" />
         </EntityType>
         <EntityType Name="Tools">
           <Key>
@@ -1215,18 +1269,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductReceipts_Machines">
-          <End Type="CarpentryShopModel.Machines" Role="Machines" Multiplicity="0..1" />
-          <End Type="CarpentryShopModel.ProductReceipts" Role="ProductReceipts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Machines">
-              <PropertyRef Name="idMachine" />
-            </Principal>
-            <Dependent Role="ProductReceipts">
-              <PropertyRef Name="idMachine" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Materials_TypeMaterials">
           <End Type="CarpentryShopModel.TypeMaterials" Role="TypeMaterials" Multiplicity="1" />
           <End Type="CarpentryShopModel.Materials" Role="Materials" Multiplicity="*" />
@@ -1311,18 +1353,41 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_StorageProduct_Products">
+          <End Type="CarpentryShopModel.Products" Role="Products" Multiplicity="1" />
+          <End Type="CarpentryShopModel.StorageProduct" Role="StorageProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="idProduct" />
+            </Principal>
+            <Dependent Role="StorageProduct">
+              <PropertyRef Name="idProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StorageProduct_Storage">
+          <End Type="CarpentryShopModel.Storage" Role="Storage" Multiplicity="1" />
+          <End Type="CarpentryShopModel.StorageProduct" Role="StorageProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Storage">
+              <PropertyRef Name="idStorage" />
+            </Principal>
+            <Dependent Role="StorageProduct">
+              <PropertyRef Name="idStorage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище CarpentryShopModelContainer" CdmEntityContainer="CarpentryShopEntities">
-          <EntitySetMapping Name="Machines">
-            <EntityTypeMapping TypeName="CarpentryShopModel.Machines">
-              <MappingFragment StoreEntitySet="Machines">
-                <ScalarProperty Name="idMachine" ColumnName="idMachine" />
-                <ScalarProperty Name="NameMachine" ColumnName="NameMachine" />
-                <ScalarProperty Name="ImageMachine" ColumnName="ImageMachine" />
+        <EntityContainerMapping StorageEntityContainer="Хранилище CarpentryShopModelContainer" CdmEntityContainer="CarpentryShopEntities2">
+          <EntitySetMapping Name="Storage">
+            <EntityTypeMapping TypeName="CarpentryShopModel.Storage">
+              <MappingFragment StoreEntitySet="Storage">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="idStorage" ColumnName="idStorage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1422,6 +1487,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Machines">
+            <EntityTypeMapping TypeName="CarpentryShopModel.Machines">
+              <MappingFragment StoreEntitySet="Machines">
+                <ScalarProperty Name="ImageMachine" ColumnName="ImageMachine" />
+                <ScalarProperty Name="NameMachine" ColumnName="NameMachine" />
+                <ScalarProperty Name="idMachine" ColumnName="idMachine" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Materials">
             <EntityTypeMapping TypeName="CarpentryShopModel.Materials">
               <MappingFragment StoreEntitySet="Materials">
@@ -1455,7 +1529,6 @@
           <EntitySetMapping Name="ProductReceipts">
             <EntityTypeMapping TypeName="CarpentryShopModel.ProductReceipts">
               <MappingFragment StoreEntitySet="ProductReceipts">
-                <ScalarProperty Name="idMachine" ColumnName="idMachine" />
                 <ScalarProperty Name="idTool" ColumnName="idTool" />
                 <ScalarProperty Name="idProductReceipt" ColumnName="idProductReceipt" />
               </MappingFragment>
@@ -1477,6 +1550,15 @@
                 <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
                 <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
                 <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StorageProduct">
+            <EntityTypeMapping TypeName="CarpentryShopModel.StorageProduct">
+              <MappingFragment StoreEntitySet="StorageProduct">
+                <ScalarProperty Name="idStorage" ColumnName="idStorage" />
+                <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+                <ScalarProperty Name="idStorageProduct" ColumnName="idStorageProduct" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
